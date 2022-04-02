@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTerminal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Terminal>
+    <number>1</number>
+    <address>г. Москва, ул. Пушкина, д. 15</address>
+    <capacity>10000</capacity>
+    <load>500</load>
+  </Terminal>
+  <Terminal>
+    <number>2</number>
+    <address>г. Москва, ул. Толстого, д. 20</address>
+    <capacity>10000</capacity>
+    <load>9000</load>
+  </Terminal>
+  <Terminal>
+    <number>3</number>
+    <address>г. Москва, ул. Достоевского, д. 25</address>
+    <capacity>10000</capacity>
+    <load>9001</load>
+  </Terminal>
+  <Terminal>
+    <number>4</number>
+    <address>г. Москва, ул. Чехова, д. 30</address>
+    <capacity>10000</capacity>
+    <load>9900</load>
+  </Terminal>
+</ArrayOfTerminal>
