@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1Clear = new System.Windows.Forms.Button();
@@ -103,6 +103,7 @@
             // 
             // button1Clear
             // 
+            this.button1Clear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button1Clear.Location = new System.Drawing.Point(423, 485);
             this.button1Clear.Name = "button1Clear";
             this.button1Clear.Size = new System.Drawing.Size(75, 23);
@@ -113,6 +114,7 @@
             // 
             // textBox11A
             // 
+            this.textBox11A.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox11A.Location = new System.Drawing.Point(30, 485);
             this.textBox11A.Name = "textBox11A";
             this.textBox11A.Size = new System.Drawing.Size(100, 20);
@@ -123,6 +125,7 @@
             // 
             // label11A
             // 
+            this.label11A.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label11A.AutoSize = true;
             this.label11A.Location = new System.Drawing.Point(7, 488);
             this.label11A.Name = "label11A";
@@ -132,6 +135,7 @@
             // 
             // button1Draw
             // 
+            this.button1Draw.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button1Draw.Location = new System.Drawing.Point(329, 485);
             this.button1Draw.Name = "button1Draw";
             this.button1Draw.Size = new System.Drawing.Size(75, 23);
@@ -169,6 +173,7 @@
             // 
             // button2Clear
             // 
+            this.button2Clear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button2Clear.Location = new System.Drawing.Point(423, 485);
             this.button2Clear.Name = "button2Clear";
             this.button2Clear.Size = new System.Drawing.Size(75, 23);
@@ -179,6 +184,7 @@
             // 
             // textBox12A
             // 
+            this.textBox12A.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox12A.Location = new System.Drawing.Point(30, 485);
             this.textBox12A.Name = "textBox12A";
             this.textBox12A.Size = new System.Drawing.Size(100, 20);
@@ -189,6 +195,7 @@
             // 
             // label12A
             // 
+            this.label12A.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label12A.AutoSize = true;
             this.label12A.Location = new System.Drawing.Point(7, 488);
             this.label12A.Name = "label12A";
@@ -198,6 +205,7 @@
             // 
             // button2Draw
             // 
+            this.button2Draw.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button2Draw.Location = new System.Drawing.Point(329, 485);
             this.button2Draw.Name = "button2Draw";
             this.button2Draw.Size = new System.Drawing.Size(75, 23);
@@ -211,19 +219,19 @@
             this.chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea4.AxisX.LabelStyle.Format = "N2";
-            chartArea4.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea4);
-            legend4.DockedToChartArea = "ChartArea1";
-            legend4.Name = "Legend1";
-            this.chart.Legends.Add(legend4);
+            chartArea5.AxisX.LabelStyle.Format = "N2";
+            chartArea5.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea5);
+            legend5.DockedToChartArea = "ChartArea1";
+            legend5.Name = "Legend1";
+            this.chart.Legends.Add(legend5);
             this.chart.Location = new System.Drawing.Point(6, 6);
             this.chart.Name = "chart";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart.Series.Add(series4);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chart.Series.Add(series5);
             this.chart.Size = new System.Drawing.Size(775, 460);
             this.chart.TabIndex = 2;
             this.chart.TabStop = false;
@@ -244,6 +252,7 @@
             // 
             // button3Clear
             // 
+            this.button3Clear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button3Clear.Location = new System.Drawing.Point(423, 485);
             this.button3Clear.Name = "button3Clear";
             this.button3Clear.Size = new System.Drawing.Size(75, 23);
@@ -254,6 +263,7 @@
             // 
             // button3Draw
             // 
+            this.button3Draw.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button3Draw.Location = new System.Drawing.Point(329, 485);
             this.button3Draw.Name = "button3Draw";
             this.button3Draw.Size = new System.Drawing.Size(75, 23);
@@ -264,6 +274,9 @@
             // 
             // pb2
             // 
+            this.pb2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pb2.BackColor = System.Drawing.Color.White;
             this.pb2.Location = new System.Drawing.Point(5, 5);
             this.pb2.Name = "pb2";
@@ -290,6 +303,7 @@
             // 
             // textBox4Xk
             // 
+            this.textBox4Xk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox4Xk.Location = new System.Drawing.Point(185, 484);
             this.textBox4Xk.Name = "textBox4Xk";
             this.textBox4Xk.Size = new System.Drawing.Size(100, 20);
@@ -299,6 +313,7 @@
             // 
             // label4Xk
             // 
+            this.label4Xk.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label4Xk.AutoSize = true;
             this.label4Xk.Location = new System.Drawing.Point(156, 487);
             this.label4Xk.Name = "label4Xk";
@@ -308,6 +323,7 @@
             // 
             // textBox4Xn
             // 
+            this.textBox4Xn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox4Xn.Location = new System.Drawing.Point(37, 484);
             this.textBox4Xn.Name = "textBox4Xn";
             this.textBox4Xn.Size = new System.Drawing.Size(100, 20);
@@ -317,6 +333,7 @@
             // 
             // label3Xn
             // 
+            this.label3Xn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3Xn.AutoSize = true;
             this.label3Xn.Location = new System.Drawing.Point(8, 487);
             this.label3Xn.Name = "label3Xn";
@@ -326,6 +343,7 @@
             // 
             // button4Clear
             // 
+            this.button4Clear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button4Clear.Location = new System.Drawing.Point(423, 485);
             this.button4Clear.Name = "button4Clear";
             this.button4Clear.Size = new System.Drawing.Size(75, 23);
@@ -336,6 +354,7 @@
             // 
             // button4Draw
             // 
+            this.button4Draw.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.button4Draw.Location = new System.Drawing.Point(329, 485);
             this.button4Draw.Name = "button4Draw";
             this.button4Draw.Size = new System.Drawing.Size(75, 23);
@@ -346,20 +365,23 @@
             // 
             // chart2
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea3);
-            legend3.DockedToChartArea = "ChartArea1";
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            legend3.Name = "Legend1";
-            this.chart2.Legends.Add(legend3);
+            this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea6.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea6);
+            legend6.DockedToChartArea = "ChartArea1";
+            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend6.Name = "Legend1";
+            this.chart2.Legends.Add(legend6);
             this.chart2.Location = new System.Drawing.Point(6, 6);
             this.chart2.Name = "chart2";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.MarkerSize = 50;
-            series3.Name = "Series1";
-            this.chart2.Series.Add(series3);
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.MarkerSize = 50;
+            series6.Name = "Series1";
+            this.chart2.Series.Add(series6);
             this.chart2.Size = new System.Drawing.Size(775, 460);
             this.chart2.TabIndex = 0;
             this.chart2.TabStop = false;
@@ -372,6 +394,7 @@
             this.ClientSize = new System.Drawing.Size(799, 551);
             this.Controls.Add(this.tabControl1);
             this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(815, 590);
             this.Name = "Form1";
             this.Text = "Lab-5";
             this.tabControl1.ResumeLayout(false);
