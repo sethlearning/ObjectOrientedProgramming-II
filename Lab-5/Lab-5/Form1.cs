@@ -32,42 +32,49 @@ namespace Lab_5
 
         void drawPb()
         {
-            float a = Convert.ToSingle(textBox11A.Text);
-
-            Graphics g = pb.CreateGraphics();
-
-            Pen pbPen = new Pen(Color.Red, (float)1.5);
-
-            int pointsCount = 100;
-            float xmin = 0, xmax = (float)(6 * Math.PI);
-            float xstep = (xmax - xmin) / pointsCount;
-
-            float ymin = -3, ymax = 3;
-
-            float kx = pb.Width / (xmax - xmin);
-            float ky = pb.Height / (ymax - ymin);
-
-            float x1 = xmin, y1 = f(a, xmin);
-            float x2, y2;
-
-            float pby1, pby2;
-
-            for (int i = 0; i < pointsCount; i++)
+            try
             {
-                x2 = x1 + xstep;
-                y2 = f(a, x2);
+                float a = Convert.ToSingle(textBox11A.Text);
 
-                pby1 = pb.Height / 2 - ky * y1;
-                pby2 = pb.Height / 2 - ky * y2;
+                Graphics g = pb.CreateGraphics();
 
-                g.DrawLine(pbPen, kx * x1, pby1, kx * x2, pby2);
+                Pen pbPen = new Pen(Color.Red, (float)1.5);
 
-                x1 = x2;
-                y1 = y2;
+                int pointsCount = 100;
+                float xmin = 0, xmax = (float)(6 * Math.PI);
+                float xstep = (xmax - xmin) / pointsCount;
+
+                float ymin = -3, ymax = 3;
+
+                float kx = pb.Width / (xmax - xmin);
+                float ky = pb.Height / (ymax - ymin);
+
+                float x1 = xmin, y1 = f(a, xmin);
+                float x2, y2;
+
+                float pby1, pby2;
+
+                for (int i = 0; i < pointsCount; i++)
+                {
+                    x2 = x1 + xstep;
+                    y2 = f(a, x2);
+
+                    pby1 = pb.Height / 2 - ky * y1;
+                    pby2 = pb.Height / 2 - ky * y2;
+
+                    g.DrawLine(pbPen, kx * x1, pby1, kx * x2, pby2);
+
+                    x1 = x2;
+                    y1 = y2;
+                }
+
+                Font fnt = new Font("Arial", 10);
+                g.DrawString($"Sin(x) - Sin(2Pi - {a}x)", fnt, new SolidBrush(Color.Blue), 10, 10);
             }
-
-            Font fnt = new Font("Arial", 10);
-            g.DrawString($"Sin(x) - Sin(2Pi - {a}x)", fnt, new SolidBrush(Color.Blue), 10, 10);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         public void drawPbFunction(PictureBox pb)
@@ -93,34 +100,41 @@ namespace Lab_5
         // Task 1-2
         void drawChart()
         {
-            float a = Convert.ToSingle(textBox12A.Text);
-
-            int pointsCount = 100;
-            float xmin = 0, xmax = (float)(6 * Math.PI);
-            float xstep = (xmax - xmin) / pointsCount;
-
-            float x = xmin, y;
-
-            chart.Series.Clear();
-            chart.Series.Add(new System.Windows.Forms.DataVisualization.Charting.Series());
-            int serie = chart.Series.Count - 1;
-
-            Random r = new Random();
-
-            chart.Series[serie].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            if (serie == 0)
-                chart.Series[serie].Color = Color.Blue;
-            else
-                chart.Series[serie].Color = Color.FromArgb(r.Next(256), r.Next(256), r.Next(256));
-
-            chart.Series[serie].LegendText = $"Sin(x) - Sin(2Pi - {a}x)";
-
-            for (int i = 0; i < pointsCount; i++)
+            try
             {
-                y = f(a, x);
-                chart.Series[serie].Points.AddXY(x, y);
+                float a = Convert.ToSingle(textBox12A.Text);
 
-                x += xstep;
+                int pointsCount = 100;
+                float xmin = 0, xmax = (float)(6 * Math.PI);
+                float xstep = (xmax - xmin) / pointsCount;
+
+                float x = xmin, y;
+
+                chart.Series.Clear();
+                chart.Series.Add(new System.Windows.Forms.DataVisualization.Charting.Series());
+                int serie = chart.Series.Count - 1;
+
+                Random r = new Random();
+
+                chart.Series[serie].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                if (serie == 0)
+                    chart.Series[serie].Color = Color.Blue;
+                else
+                    chart.Series[serie].Color = Color.FromArgb(r.Next(256), r.Next(256), r.Next(256));
+
+                chart.Series[serie].LegendText = $"Sin(x) - Sin(2Pi - {a}x)";
+
+                for (int i = 0; i < pointsCount; i++)
+                {
+                    y = f(a, x);
+                    chart.Series[serie].Points.AddXY(x, y);
+
+                    x += xstep;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -244,7 +258,7 @@ namespace Lab_5
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
