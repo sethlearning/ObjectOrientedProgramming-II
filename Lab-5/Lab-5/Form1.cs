@@ -20,13 +20,11 @@ namespace Lab_5
             CreateDefaultChartSeries();
             chart2.Series.Clear();
             CreateDefaultChart2Series();
-            //ClearPb(pb);
-            //drawPbFunction(pb);
-            //drawPb();
         }
         
         /////////////////////////////////
         // Task 1-1
+
         // Sin(x) - Sin(2Pi - ax)
         float f(float a, float x) => (float)(Math.Sin(x) - Math.Sin(2 * Math.PI - a * x));
 
@@ -77,12 +75,6 @@ namespace Lab_5
             }
         }
 
-        public void drawPbFunction(PictureBox pb)
-        {
-            Graphics g = pb.CreateGraphics();
-            Font fnt = new Font("Arial", 10);
-            g.DrawString("Sin(x) - Sin(2Pi - ax)", fnt, new SolidBrush(Color.Blue), 10, 10);
-        }
 
         //////////////////////////////
         // Task 1-2
@@ -144,7 +136,6 @@ namespace Lab_5
 
         //////////////////////////////
         // Task 2
-
         void drawRandomFigures()
         {
             Graphics g2 = pb2.CreateGraphics();
@@ -156,7 +147,6 @@ namespace Lab_5
             Font fnt;
             Char ch;
             Random r = new Random();
-
 
             figurecount = r.Next(100);
 
