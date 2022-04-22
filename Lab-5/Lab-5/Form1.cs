@@ -334,5 +334,18 @@ namespace Lab_5
             }
 
         }
+
+        private void textBoxA_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox12A.Text != textBox11A.Text)
+            {
+                TextBox tb = sender as TextBox;
+
+                if (tb.Name == "textBox11A")
+                    textBox12A.Text = textBox11A.Text;
+                else if (tb.Name == "textBox12A")
+                    textBox11A.Text = textBox12A.Text;
+            }
+        }
     }
 }
