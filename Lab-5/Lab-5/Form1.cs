@@ -90,6 +90,15 @@ namespace Lab_5
             drawPb();
         }
 
+        private void textBox11A_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ClearPb(pb);
+                drawPb();
+            }
+        }
+
         private void button1Clear_Click(object sender, EventArgs e)
         {
             ClearPb(pb);
@@ -150,7 +159,11 @@ namespace Lab_5
         {
             drawChart();
         }
-
+        private void textBox12A_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+                drawChart();
+        }
         private void button2Clear_Click(object sender, EventArgs e)
         {
             chart.Series.Clear();
@@ -325,7 +338,7 @@ namespace Lab_5
             CreateDefaultChart2Series();
         }
 
-        private void textBox4Xk_KeyDown(object sender, KeyEventArgs e)
+        private void textBox4_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -347,5 +360,7 @@ namespace Lab_5
                     textBox11A.Text = textBox12A.Text;
             }
         }
+
+
     }
 }
