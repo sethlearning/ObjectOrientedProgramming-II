@@ -84,27 +84,6 @@ namespace Lab_5
             g.DrawString("Sin(x) - Sin(2Pi - ax)", fnt, new SolidBrush(Color.Blue), 10, 10);
         }
 
-        private void button1Draw_Click(object sender, EventArgs e)
-        {
-            ClearPb(pb);
-            drawPb();
-        }
-
-        private void textBox11A_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ClearPb(pb);
-                drawPb();
-            }
-        }
-
-        private void button1Clear_Click(object sender, EventArgs e)
-        {
-            ClearPb(pb);
-            //drawPbFunction(pb);
-        }
-
         //////////////////////////////
         // Task 1-2
         void drawChart()
@@ -153,21 +132,6 @@ namespace Lab_5
             chart.Series[0].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             chart.Series[0].Color = Color.Blue;
             chart.Series[0].LegendText = $"Sin(x) - Sin(2Pi - ax)";
-        }
-
-        private void button2Draw_Click(object sender, EventArgs e)
-        {
-            drawChart();
-        }
-        private void textBox12A_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter) 
-                drawChart();
-        }
-        private void button2Clear_Click(object sender, EventArgs e)
-        {
-            chart.Series.Clear();
-            CreateDefaultChartSeries();
         }
 
         void ClearPb(PictureBox pb)
@@ -226,21 +190,8 @@ namespace Lab_5
                         break;
                 }
             }
-
-
         }
 
-        private void button3Draw_Click(object sender, EventArgs e)
-        {
-            drawRandomFigures();
-        }
-
-        private void button3Clear_Click(object sender, EventArgs e)
-        {
-            ClearPb(pb2);
-        }
-
-        
         /////////////////////////////
         // Task 3
         void drawChart2()
@@ -325,86 +276,6 @@ namespace Lab_5
             }
 
             return result;
-        }
-        private void button4Draw_Click(object sender, EventArgs e)
-        {
-            chart2.Series.Clear();
-            drawChart2();
-        }
-
-        private void button4Clear_Click(object sender, EventArgs e)
-        {
-            chart2.Series.Clear();
-            CreateDefaultChart2Series();
-        }
-
-        private void textBox4_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                chart2.Series.Clear();
-                drawChart2();
-            }
-
-        }
-
-        private void textBoxA_TextChanged(object sender, EventArgs e)
-        {
-            if (textBox12A.Text != textBox11A.Text)
-            {
-                TextBox tb = sender as TextBox;
-
-                if (tb.Name == "textBox11A")
-                    textBox12A.Text = textBox11A.Text;
-                else if (tb.Name == "textBox12A")
-                    textBox11A.Text = textBox12A.Text;
-            }
-        }
-
-        private void tabControl1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Escape)
-            {
-                switch(tabControl1.SelectedIndex)
-                {
-                    case 0:
-                        ClearPb(pb);
-                        break;
-                    case 1:
-                        chart.Series.Clear();
-                        CreateDefaultChartSeries();
-                        break;
-                    case 2:
-                        ClearPb(pb2);
-                        break;
-                    case 3:
-                        chart2.Series.Clear();
-                        CreateDefaultChart2Series();
-                        break;
-                }
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.Enter)
-            {
-                switch(tabControl1.SelectedIndex)
-                {
-                    case 0:
-                        ClearPb(pb);
-                        drawPb();
-                        break;
-                    case 1:
-                        drawChart();
-                        break;
-                    case 2:
-                        drawRandomFigures();
-                        break;
-                    case 3:
-                        chart2.Series.Clear();
-                        drawChart2();
-                        break;
-                }
-                e.Handled = true;
-            }
         }
     }
 }
