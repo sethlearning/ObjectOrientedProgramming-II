@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button1Clear = new System.Windows.Forms.Button();
@@ -106,7 +106,7 @@
             this.button1Clear.Location = new System.Drawing.Point(423, 485);
             this.button1Clear.Name = "button1Clear";
             this.button1Clear.Size = new System.Drawing.Size(75, 23);
-            this.button1Clear.TabIndex = 5;
+            this.button1Clear.TabIndex = 4;
             this.button1Clear.Text = "Clear";
             this.button1Clear.UseVisualStyleBackColor = true;
             this.button1Clear.Click += new System.EventHandler(this.button1Clear_Click);
@@ -116,7 +116,7 @@
             this.textBox11A.Location = new System.Drawing.Point(30, 485);
             this.textBox11A.Name = "textBox11A";
             this.textBox11A.Size = new System.Drawing.Size(100, 20);
-            this.textBox11A.TabIndex = 4;
+            this.textBox11A.TabIndex = 2;
             this.textBox11A.Text = "1";
             this.textBox11A.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox11A.TextChanged += new System.EventHandler(this.textBoxA_TextChanged);
@@ -136,7 +136,7 @@
             this.button1Draw.Location = new System.Drawing.Point(329, 485);
             this.button1Draw.Name = "button1Draw";
             this.button1Draw.Size = new System.Drawing.Size(75, 23);
-            this.button1Draw.TabIndex = 2;
+            this.button1Draw.TabIndex = 3;
             this.button1Draw.Text = "Draw";
             this.button1Draw.UseVisualStyleBackColor = true;
             this.button1Draw.Click += new System.EventHandler(this.button1Draw_Click);
@@ -173,7 +173,7 @@
             this.button2Clear.Location = new System.Drawing.Point(423, 485);
             this.button2Clear.Name = "button2Clear";
             this.button2Clear.Size = new System.Drawing.Size(75, 23);
-            this.button2Clear.TabIndex = 6;
+            this.button2Clear.TabIndex = 5;
             this.button2Clear.Text = "Clear";
             this.button2Clear.UseVisualStyleBackColor = true;
             this.button2Clear.Click += new System.EventHandler(this.button2Clear_Click);
@@ -183,7 +183,7 @@
             this.textBox12A.Location = new System.Drawing.Point(30, 485);
             this.textBox12A.Name = "textBox12A";
             this.textBox12A.Size = new System.Drawing.Size(100, 20);
-            this.textBox12A.TabIndex = 5;
+            this.textBox12A.TabIndex = 3;
             this.textBox12A.Text = "1";
             this.textBox12A.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox12A.TextChanged += new System.EventHandler(this.textBoxA_TextChanged);
@@ -203,7 +203,7 @@
             this.button2Draw.Location = new System.Drawing.Point(329, 485);
             this.button2Draw.Name = "button2Draw";
             this.button2Draw.Size = new System.Drawing.Size(75, 23);
-            this.button2Draw.TabIndex = 3;
+            this.button2Draw.TabIndex = 4;
             this.button2Draw.Text = "Draw";
             this.button2Draw.UseVisualStyleBackColor = true;
             this.button2Draw.Click += new System.EventHandler(this.button2Draw_Click);
@@ -213,21 +213,22 @@
             this.chart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea9.AxisX.LabelStyle.Format = "N2";
-            chartArea9.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea9);
-            legend9.DockedToChartArea = "ChartArea1";
-            legend9.Name = "Legend1";
-            this.chart.Legends.Add(legend9);
+            chartArea1.AxisX.LabelStyle.Format = "N2";
+            chartArea1.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea1);
+            legend1.DockedToChartArea = "ChartArea1";
+            legend1.Name = "Legend1";
+            this.chart.Legends.Add(legend1);
             this.chart.Location = new System.Drawing.Point(6, 6);
             this.chart.Name = "chart";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.chart.Series.Add(series9);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart.Series.Add(series1);
             this.chart.Size = new System.Drawing.Size(775, 460);
             this.chart.TabIndex = 2;
+            this.chart.TabStop = false;
             this.chart.Text = "chart1";
             // 
             // tabPage3
@@ -294,7 +295,7 @@
             this.textBox4Xk.Location = new System.Drawing.Point(185, 484);
             this.textBox4Xk.Name = "textBox4Xk";
             this.textBox4Xk.Size = new System.Drawing.Size(100, 20);
-            this.textBox4Xk.TabIndex = 6;
+            this.textBox4Xk.TabIndex = 3;
             this.textBox4Xk.Text = "1";
             this.textBox4Xk.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox4Xk.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox4_KeyDown);
@@ -313,7 +314,7 @@
             this.textBox4Xn.Location = new System.Drawing.Point(37, 484);
             this.textBox4Xn.Name = "textBox4Xn";
             this.textBox4Xn.Size = new System.Drawing.Size(100, 20);
-            this.textBox4Xn.TabIndex = 4;
+            this.textBox4Xn.TabIndex = 2;
             this.textBox4Xn.Text = "0";
             this.textBox4Xn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.textBox4Xn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox4_KeyDown);
@@ -332,7 +333,7 @@
             this.button4Clear.Location = new System.Drawing.Point(423, 485);
             this.button4Clear.Name = "button4Clear";
             this.button4Clear.Size = new System.Drawing.Size(75, 23);
-            this.button4Clear.TabIndex = 2;
+            this.button4Clear.TabIndex = 5;
             this.button4Clear.Text = "Clear";
             this.button4Clear.UseVisualStyleBackColor = true;
             this.button4Clear.Click += new System.EventHandler(this.button4Clear_Click);
@@ -342,29 +343,30 @@
             this.button4Draw.Location = new System.Drawing.Point(329, 485);
             this.button4Draw.Name = "button4Draw";
             this.button4Draw.Size = new System.Drawing.Size(75, 23);
-            this.button4Draw.TabIndex = 1;
+            this.button4Draw.TabIndex = 4;
             this.button4Draw.Text = "Draw";
             this.button4Draw.UseVisualStyleBackColor = true;
             this.button4Draw.Click += new System.EventHandler(this.button4Draw_Click);
             // 
             // chart2
             // 
-            chartArea10.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea10);
-            legend10.DockedToChartArea = "ChartArea1";
-            legend10.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
-            legend10.Name = "Legend1";
-            this.chart2.Legends.Add(legend10);
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            legend2.DockedToChartArea = "ChartArea1";
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Left;
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
             this.chart2.Location = new System.Drawing.Point(6, 6);
             this.chart2.Name = "chart2";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series10.Legend = "Legend1";
-            series10.MarkerSize = 50;
-            series10.Name = "Series1";
-            this.chart2.Series.Add(series10);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.MarkerSize = 50;
+            series2.Name = "Series1";
+            this.chart2.Series.Add(series2);
             this.chart2.Size = new System.Drawing.Size(775, 460);
             this.chart2.TabIndex = 0;
+            this.chart2.TabStop = false;
             this.chart2.Text = "chart1";
             // 
             // Form1
