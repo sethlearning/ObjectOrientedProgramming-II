@@ -361,6 +361,50 @@ namespace Lab_5
             }
         }
 
-
+        private void tabControl1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                switch(tabControl1.SelectedIndex)
+                {
+                    case 0:
+                        ClearPb(pb);
+                        break;
+                    case 1:
+                        chart.Series.Clear();
+                        CreateDefaultChartSeries();
+                        break;
+                    case 2:
+                        ClearPb(pb2);
+                        break;
+                    case 3:
+                        chart2.Series.Clear();
+                        CreateDefaultChart2Series();
+                        break;
+                }
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                switch(tabControl1.SelectedIndex)
+                {
+                    case 0:
+                        ClearPb(pb);
+                        drawPb();
+                        break;
+                    case 1:
+                        drawChart();
+                        break;
+                    case 2:
+                        drawRandomFigures();
+                        break;
+                    case 3:
+                        chart2.Series.Clear();
+                        drawChart2();
+                        break;
+                }
+                e.Handled = true;
+            }
+        }
     }
 }
