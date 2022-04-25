@@ -110,7 +110,7 @@ namespace Lab_6
                     break;
                 case ImagingMode.pictureBoxGraphic1:
                 case ImagingMode.chartGraphic1:
-                    textBox.AppendText($"\r\nXmin: 0, XMax = 6Pi");
+                    textBox.AppendText($"\r\nXmin: 0, Xmax = 6Pi");
                     break;
                 case ImagingMode.chartGraphic2:
                     textBox.AppendText($"\r\nXn: 0, Xk = 1");
