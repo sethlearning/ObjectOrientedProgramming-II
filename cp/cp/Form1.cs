@@ -57,20 +57,12 @@ namespace cp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'cpDataSet.Suppliers' table. You can move, or remove it, as needed.
             this.suppliersTableAdapter.Fill(this.cpDataSet.Suppliers);
-            // TODO: This line of code loads data into the 'cpDataSet.Goods' table. You can move, or remove it, as needed.
             this.goodsTableAdapter.Fill(this.cpDataSet.Goods);
-            // TODO: This line of code loads data into the 'cpDataSet.Sells' table. You can move, or remove it, as needed.
-            // DataTable dt = new DataTable();
-            //dt.Columns.Add(new DataColumn("SellID"));
-
-
 
             FillDataSells();
-            //bs.DataSource = this.sellsTableAdapter;
-            //bs.DataMember = "Sells";
             bs.DataSource = dt;
+            //bs.DataMember = "Sells";
             dataGridView1.DataSource = bs;
             FormatDataSells(dataGridView1);
 
@@ -78,7 +70,7 @@ namespace cp
             dtSells = this.sellsTableAdapter.GetData();
         }
 
-        private void EditSells()
+        private void EditSells(int i)
         {
             //dr = dt.Rows[e.RowIndex];
             dr = dt.Rows[dataGridView1.SelectedCells[0].RowIndex];
@@ -86,29 +78,21 @@ namespace cp
             goodsTableAdapter.Fill(this.cpDataSet.Goods);
             dtg = goodsTableAdapter.GetData();
 
-
             FSell f2 = new FSell(dr, dtg);
             DialogResult res = f2.ShowDialog();
 
             if (res == DialogResult.OK && f2.dataChanged)
             {
-                //dt = f2.dts;
-                //MessageBox.Show(dr[5].ToString());
-                //sellsTableAdapter.Update()
-                //tableAdapterManager.UpdateAll(cpDataSet);
                 cpDataSet.SellsRow sellsRow = cpDataSet.Sells.FindBySellID((int)dr[0]);
-                //sellsRow = (cpDataSet.SellsRow)dr;
+
                 sellsRow.SGID = (int)dr[1];
                 sellsRow.SDate = (DateTime)dr[2];
                 sellsRow.SQuantity = (int)dr[3];
                 sellsRow.SSellingPrice = (decimal)dr[4];
 
-                /*
-                MessageBox.Show(sellsRow.SSellingPrice.ToString());
-                MessageBox.Show(sellsRow[4].ToString());
-                MessageBox.Show(cpDataSet.HasChanges().ToString());
-                */
                 tableAdapterManager.UpdateAll(cpDataSet);
+
+                // MessageBox.Show(cpDataSet.HasChanges().ToString());
 
                 if (f2.gNameChanged)
                 {
@@ -116,91 +100,24 @@ namespace cp
                     bs.DataSource = dt;
                 }
             }
+            f2.Dispose();
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            EditSells();
-            ////////////////////////////////////////////////////////////
-            //MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            //MessageBox.Show($"Column: {e.ColumnIndex} Row: {e.RowIndex} String: {e.ToString()}");
-
-
-            /*String s;
-            int i;
-            DataTable dt = new DataTable();
-            i = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-            sellsTableAdapter.FillBy2(this.cpDataSet.Sells, i);
-            dt = sellsTableAdapter.GetDataBy2(i);
-            */
-            //MessageBox.Show((dt.Rows[0])[dt.Columns[2]].ToString());
-
-            // DataRow dr;
-
-            //this.sellsTableAdapter.FillBy2(this.cpDataSet.Sells);
-
-            //this.Enabled = false;
-            //f2.Show();
-            //f2.Activate();
-            // this.Enabled = true;
-            //dr = dataGridView1.SelectedCells[0].OwningRow;
-            /////////////////////////////////////////////////////
-            
-            
-            /*
-            //dr = dt.Rows[e.RowIndex];
-            dr = dt.Rows[dataGridView1.SelectedCells[0].RowIndex];
-            DataTable dtg = new DataTable();
-            goodsTableAdapter.Fill(this.cpDataSet.Goods);
-            dtg = goodsTableAdapter.GetData();
-
-
-            FSell f2 = new FSell(dr, dtg);
-            DialogResult res = f2.ShowDialog();
-
-            if (res == DialogResult.OK && f2.dataChanged)
-            {
-                //dt = f2.dts;
-                //MessageBox.Show(dr[5].ToString());
-                //sellsTableAdapter.Update()
-                //tableAdapterManager.UpdateAll(cpDataSet);
-                cpDataSet.SellsRow sellsRow = cpDataSet.Sells.FindBySellID((int)dr[0]);
-                //sellsRow = (cpDataSet.SellsRow)dr;
-                sellsRow.SGID = (int)dr[1];
-                sellsRow.SDate = (DateTime)dr[2];
-                sellsRow.SQuantity = (int)dr[3];
-                sellsRow.SSellingPrice = (decimal)dr[4];
-
-                
-                //MessageBox.Show(sellsRow.SSellingPrice.ToString());
-                //MessageBox.Show(sellsRow[4].ToString());
-                //MessageBox.Show(cpDataSet.HasChanges().ToString());
-                
-                tableAdapterManager.UpdateAll(cpDataSet);
-
-                if (f2.gNameChanged)
-                {
-                    FillDataSells();
-                    bs.DataSource = dt;
-                }
-            }
-        */
-
-
-////////////////////////////////////////////////
-//            sellsTableAdapter.Update()
-
-            //bs.DataSource = dt;
-            //dataGridView1.Update();
-            //MessageBox.Show(res.ToString());
-///////////////////////////////////////////////
-
+            if (e.RowIndex < dataGridView1.Rows.Count - 1)  // EDIT
+                EditSells(e.RowIndex);
+            else if (e.RowIndex == dataGridView1.Rows.Count - 1)    // NEW
+                MessageBox.Show("NEW");
         }
 
         private void toolStripButtonEdit_Click(object sender, EventArgs e)
         {
-            if (tabControl1.TabIndex == 0)
+            if (tabControl1.TabIndex == 0 && dataGridView1.SelectedCells.Count > 0)
             {
-
+                if (dataGridView1.SelectedCells[0].RowIndex < dataGridView1.Rows.Count - 1) // EDIT
+                    EditSells(dataGridView1.SelectedCells[0].RowIndex);
+                else if (dataGridView1.SelectedCells[0].RowIndex == dataGridView1.Rows.Count - 1)   // NEW
+                    MessageBox.Show("NEW");
             }
         }
     }
