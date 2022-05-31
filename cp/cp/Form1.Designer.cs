@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -44,9 +45,13 @@
             this.goodsTableAdapter = new cp.cpDataSetTableAdapters.GoodsTableAdapter();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersTableAdapter = new cp.cpDataSetTableAdapters.SuppliersTableAdapter();
+            this.toolStripButtonCreate = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonEdit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sellsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).BeginInit();
@@ -110,6 +115,10 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonCreate,
+            this.toolStripButtonEdit,
+            this.toolStripButtonDelete});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -164,6 +173,31 @@
             // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
             // 
+            // toolStripButtonCreate
+            // 
+            this.toolStripButtonCreate.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCreate.Image")));
+            this.toolStripButtonCreate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCreate.Name = "toolStripButtonCreate";
+            this.toolStripButtonCreate.Size = new System.Drawing.Size(61, 22);
+            this.toolStripButtonCreate.Text = "Create";
+            // 
+            // toolStripButtonEdit
+            // 
+            this.toolStripButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEdit.Image")));
+            this.toolStripButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEdit.Name = "toolStripButtonEdit";
+            this.toolStripButtonEdit.Size = new System.Drawing.Size(47, 22);
+            this.toolStripButtonEdit.Text = "Edit";
+            this.toolStripButtonEdit.Click += new System.EventHandler(this.toolStripButtonEdit_Click);
+            // 
+            // toolStripButtonDelete
+            // 
+            this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
+            this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDelete.Name = "toolStripButtonDelete";
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(60, 22);
+            this.toolStripButtonDelete.Text = "Delete";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,6 +214,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sellsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).EndInit();
@@ -206,6 +242,9 @@
         public cpDataSetTableAdapters.GoodsTableAdapter goodsTableAdapter;
         private System.Windows.Forms.BindingSource suppliersBindingSource;
         private cpDataSetTableAdapters.SuppliersTableAdapter suppliersTableAdapter;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCreate;
+        private System.Windows.Forms.ToolStripButton toolStripButtonEdit;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
     }
 }
 
