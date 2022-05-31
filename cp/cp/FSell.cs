@@ -12,15 +12,9 @@ namespace cp
 {
     public partial class FSell : Form
     {
-        //public DataTable dts;
         public DataRow dr;
         public bool gNameChanged = false;
         public bool dataChanged = false;
-
-        public FSell()
-        {
-            InitializeComponent();
-        }
 
         public FSell(DataRow idr, DataTable dtg)
         {
@@ -30,8 +24,8 @@ namespace cp
             int id = (int)dr[1];
                         
             textBoxSellID.Text = dr[0].ToString();
-            textBoxSQuantity.Text = dr[3].ToString();
-            textBoxSSellingPrice.Text = dr[4].ToString();
+            numericUpDownSQuantity.Value = Convert.ToDecimal(dr[3]);
+            numericUpDownSSellingPrice.Value = Convert.ToDecimal(dr[4]);
             dateTimePicker1.Value = (DateTime)dr[2];
 
             comboBoxSGID.DataSource = dtg;
@@ -39,28 +33,12 @@ namespace cp
             comboBoxSGID.ValueMember = "GID";
             comboBoxSGID.SelectedValue = id;
             textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
-
-            dataGridView1.DataSource = dr;
-        }
-
-        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
             //(dts.Rows[0])[dts.Columns[0]] = Convert.ToInt32(textBox1.Text);
-            //(dts.Rows[0])[dts.Columns[1]] = Convert.ToInt32(textBox2.Text);
-            //(dts.Rows[0])[dts.Columns[2]] = Convert.ToDateTime(textBox3.Text);
-            //(dts.Rows[0])[dts.Columns[3]] = Convert.ToInt32(textBox4.Text);
-            //(dts.Rows[0])[dts.Columns[4]] = Convert.ToInt32(textBox5.Text);
 
             if (dr[0].ToString() != textBoxSellID.Text)
             {
@@ -68,23 +46,21 @@ namespace cp
                 dataChanged = true;
             }
 
-            //if (dr[2].ToString() != dateTimePicker1.Text)
             if (dr[2] != dateTimePicker1)
             {
                 dr[2] = dateTimePicker1.Value;
-                //dr[2] = Convert.ToDateTime(textBoxSDate.Text);
                 dataChanged = true;
             }
 
-            if (dr[3].ToString() != textBoxSQuantity.Text)
+            if ((int)dr[3] != (int)numericUpDownSQuantity.Value)
             {
-                dr[3] = Convert.ToInt32(textBoxSQuantity.Text);
+                dr[3] = Convert.ToInt32(numericUpDownSQuantity.Value);
                 dataChanged = true;
             }
 
-            if (dr[4].ToString() != textBoxSSellingPrice.Text)
+            if ((decimal)dr[4] != numericUpDownSSellingPrice.Value)
             {
-                dr[4] = Convert.ToInt32(textBoxSSellingPrice.Text);
+                dr[4] = numericUpDownSSellingPrice.Value;
                 dataChanged = true;
             }
 
@@ -104,12 +80,10 @@ namespace cp
             this.Close();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //dr[1] = Convert.ToInt32(comboBox1.SelectedValue.ToString());
+        private void comboBoxSGID_SelectedIndexChanged(object sender, EventArgs e) => 
             textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
 
-        }
-
+        private void FSell_Load(object sender, EventArgs e) =>
+            this.Text = $"Продажа №{dr[0]}";
     }
 }
