@@ -24,8 +24,8 @@ namespace cp
         
         private void FillDataSells()
         {
-            this.sellsTableAdapter.FillBy(this.cpDataSet.Sells);
-            dt = this.sellsTableAdapter.GetDataBy();
+            this.sellsTableAdapter.FillExt(this.cpDataSet.Sells);
+            dt = this.sellsTableAdapter.GetDataExt();
             dt.Columns[0].ColumnName = "ID Продажи";
             dt.Columns[1].ColumnName = "ID Товара";
             dt.Columns[2].ColumnName = "Дата продажи";
