@@ -13,10 +13,13 @@ namespace cp
     public partial class FList : Form
     {
         private BindingSource bsSells = new BindingSource();
+        private BindingSource bsGoods = new BindingSource();
         //private DataTable dt = new DataTable();
         private DataTable dtSells = new DataTable();
+        private DataTable dtGoods = new DataTable();
         //private DataRow dr;
         private DataRow drSells;
+        private DataRow drGoods;
 
         public FList()
         {
@@ -27,8 +30,8 @@ namespace cp
         {
             this.sellsTableAdapter.FillExt(this.cpDataSet.Sells);
             dtSells = this.sellsTableAdapter.GetDataExt();
-            dtSells.Columns[0].ColumnName = "ID Продажи";
-            dtSells.Columns[1].ColumnName = "ID Товара";
+            dtSells.Columns[0].ColumnName = "ID продажи";
+            dtSells.Columns[1].ColumnName = "ID товара";
             dtSells.Columns[2].ColumnName = "Дата продажи";
             dtSells.Columns[3].ColumnName = "Количество";
             dtSells.Columns[4].ColumnName = "Цена";
@@ -39,12 +42,12 @@ namespace cp
         private void FormatDataGridViewSells(DataGridView d)
         {
             d.Columns[5].DisplayIndex = 2;
-            d.Columns[0].Resizable = DataGridViewTriState.True;
-            d.Columns[1].Resizable = DataGridViewTriState.True;
-            d.Columns[2].Resizable = DataGridViewTriState.True;
-            d.Columns[3].Resizable = DataGridViewTriState.True;
-            d.Columns[4].Resizable = DataGridViewTriState.True;
-            d.Columns[5].Resizable = DataGridViewTriState.True;
+            //d.Columns[0].Resizable = DataGridViewTriState.True;
+            //d.Columns[1].Resizable = DataGridViewTriState.True;
+            //d.Columns[2].Resizable = DataGridViewTriState.True;
+            //d.Columns[3].Resizable = DataGridViewTriState.True;
+            //d.Columns[4].Resizable = DataGridViewTriState.True;
+            //d.Columns[5].Resizable = DataGridViewTriState.True;
             d.Columns[0].MinimumWidth = 95;
             d.Columns[1].MinimumWidth = 95;
             d.Columns[2].MinimumWidth = 105;
@@ -61,7 +64,34 @@ namespace cp
         private void FillDataGridViewGoods()
         {
             this.goodsTableAdapter.FillExt(this.cpDataSet.Goods);
+            dtGoods = this.goodsTableAdapter.GetDataExt();
+            dtGoods.Columns[0].ColumnName = "ID товара";
+            dtGoods.Columns[1].ColumnName = "Наименование товара";
+            dtGoods.Columns[2].ColumnName = "ID поставщика";
+            dtGoods.Columns[3].ColumnName = "Дата поставки";
+            dtGoods.Columns[4].ColumnName = "Количество";
+            dtGoods.Columns[5].ColumnName = "Оптовая цена";
+            dtGoods.Columns[6].ColumnName = "Поставщик";
+            bsGoods.DataSource = dtGoods;
+        }
 
+        private void FormatDataGridViewGoods(DataGridView d)
+        {
+            d.Columns[6].DisplayIndex = 3;
+            d.Columns[0].MinimumWidth = 85;
+            //d.Columns[1].MinimumWidth = 200;
+            d.Columns[2].MinimumWidth = 110;
+            d.Columns[3].MinimumWidth = 110;    // SSupplyDate
+            d.Columns[4].MinimumWidth = 70;    // SQuantity
+            d.Columns[5].MinimumWidth = 105;    // GBuyingPrice
+            d.Columns[6].MinimumWidth = 100;    // SName
+            d.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            d.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            d.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            d.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            d.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            d.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            d.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -72,6 +102,10 @@ namespace cp
             FillDataGridViewSells();
             dataGridViewSells.DataSource = bsSells;
             FormatDataGridViewSells(dataGridViewSells);
+
+            FillDataGridViewGoods();
+            dataGridViewGoods.DataSource = bsGoods;
+            FormatDataGridViewGoods(dataGridViewGoods);
             // dtSells = this.sellsTableAdapter.GetData();
         }
 
@@ -193,6 +227,7 @@ namespace cp
                 FillDataGridViewSells();
             else if (tc.SelectedIndex == 1)
                 FillDataGridViewGoods();
+
         }
     }
 }
