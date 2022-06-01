@@ -22,7 +22,7 @@ namespace cp
             InitializeComponent();
         }
         
-        private void FillDataSells()
+        private void FillDataGridViewSells()
         {
             this.sellsTableAdapter.FillExt(this.cpDataSet.Sells);
             dt = this.sellsTableAdapter.GetDataExt();
@@ -32,8 +32,10 @@ namespace cp
             dt.Columns[3].ColumnName = "Количество";
             dt.Columns[4].ColumnName = "Цена";
             dt.Columns[5].ColumnName = "Наименование товара";
+            //bs.DataMember = "Sells";
+            bs.DataSource = dt;
         }
-        private void FormatDataSells(DataGridView d)
+        private void FormatDataGridViewSells(DataGridView d)
         {
             d.Columns[5].DisplayIndex = 2;
             d.Columns[0].Resizable = DataGridViewTriState.True;
@@ -60,11 +62,9 @@ namespace cp
             this.suppliersTableAdapter.Fill(this.cpDataSet.Suppliers);
             this.goodsTableAdapter.Fill(this.cpDataSet.Goods);
 
-            FillDataSells();
-            bs.DataSource = dt;
-            //bs.DataMember = "Sells";
+            FillDataGridViewSells();
             dataGridViewSells.DataSource = bs;
-            FormatDataSells(dataGridViewSells);
+            FormatDataGridViewSells(dataGridViewSells);
 
             this.sellsTableAdapter.Fill(this.cpDataSet.Sells);
             dtSells = this.sellsTableAdapter.GetData();
@@ -92,8 +92,8 @@ namespace cp
                 cpDataSet.Sells.Rows.Add(sellsRow);
                 tableAdapterManager.UpdateAll(cpDataSet);
 
-                FillDataSells();
-                bs.DataSource = dt;
+                FillDataGridViewSells();
+                //bs.DataSource = dt;
 
                 dataGridViewSells.CurrentCell = dataGridViewSells.Rows[dataGridViewSells.Rows.Count - 2].Cells[0];
             }
@@ -137,8 +137,8 @@ namespace cp
 
                 tableAdapterManager.UpdateAll(cpDataSet);
 
-                FillDataSells();
-                bs.DataSource = dt;
+                FillDataGridViewSells();
+                //bs.DataSource = dt;
 
                 if (i > dataGridViewSells.Rows.Count - 2)
                     dataGridViewSells.CurrentCell = dataGridViewSells.Rows[dataGridViewSells.Rows.Count - 2].Cells[0];
