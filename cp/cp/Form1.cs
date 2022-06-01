@@ -63,8 +63,8 @@ namespace cp
             FillDataSells();
             bs.DataSource = dt;
             //bs.DataMember = "Sells";
-            dataGridView1.DataSource = bs;
-            FormatDataSells(dataGridView1);
+            dataGridViewSells.DataSource = bs;
+            FormatDataSells(dataGridViewSells);
 
             this.sellsTableAdapter.Fill(this.cpDataSet.Sells);
             dtSells = this.sellsTableAdapter.GetData();
@@ -112,20 +112,20 @@ namespace cp
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < dataGridView1.Rows.Count - 1)  // EDIT
+            if (e.RowIndex < dataGridViewSells.Rows.Count - 1)  // EDIT
                 EditSells(e.RowIndex);
-            else if (e.RowIndex == dataGridView1.Rows.Count - 1)    // NEW
+            else if (e.RowIndex == dataGridViewSells.Rows.Count - 1)    // NEW
                 NewSells();
                 //MessageBox.Show("NEW");
         }
 
         private void toolStripButtonEdit_Click(object sender, EventArgs e)
         {
-            if (tabControl1.TabIndex == 0 && dataGridView1.SelectedCells.Count > 0)
+            if (tabControl1.TabIndex == 0 && dataGridViewSells.SelectedCells.Count > 0)
             {
-                if (dataGridView1.SelectedCells[0].RowIndex < dataGridView1.Rows.Count - 1) // EDIT
-                    EditSells(dataGridView1.SelectedCells[0].RowIndex);
-                else if (dataGridView1.SelectedCells[0].RowIndex == dataGridView1.Rows.Count - 1)   // NEW
+                if (dataGridViewSells.SelectedCells[0].RowIndex < dataGridViewSells.Rows.Count - 1) // EDIT
+                    EditSells(dataGridViewSells.SelectedCells[0].RowIndex);
+                else if (dataGridViewSells.SelectedCells[0].RowIndex == dataGridViewSells.Rows.Count - 1)   // NEW
                     MessageBox.Show("NEW");
             }
         }

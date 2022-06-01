@@ -48,7 +48,7 @@ namespace cp
             textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonOK_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
             //(dts.Rows[0])[dts.Columns[0]] = Convert.ToInt32(textBox1.Text);
@@ -87,7 +87,7 @@ namespace cp
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();

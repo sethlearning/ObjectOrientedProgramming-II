@@ -32,11 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewSells = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripButtonCreate = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonEdit = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.sellsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cpDataSet = new cp.cpDataSet();
             this.sellsTableAdapter = new cp.cpDataSetTableAdapters.SellsTableAdapter();
@@ -45,12 +48,9 @@
             this.goodsTableAdapter = new cp.cpDataSetTableAdapters.GoodsTableAdapter();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersTableAdapter = new cp.cpDataSetTableAdapters.SuppliersTableAdapter();
-            this.toolStripButtonCreate = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonEdit = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSells)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sellsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpDataSet)).BeginInit();
@@ -73,7 +73,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.dataGridViewSells);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -82,18 +82,18 @@
             this.tabPage1.Text = "Продажи";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewSells
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridViewSells.AllowUserToOrderColumns = true;
+            this.dataGridViewSells.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(764, 326);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridViewSells.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSells.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewSells.Name = "dataGridViewSells";
+            this.dataGridViewSells.Size = new System.Drawing.Size(764, 326);
+            this.dataGridViewSells.TabIndex = 0;
+            this.dataGridViewSells.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // tabPage2
             // 
@@ -132,6 +132,31 @@
             this.statusStrip1.Size = new System.Drawing.Size(800, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripButtonCreate
+            // 
+            this.toolStripButtonCreate.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCreate.Image")));
+            this.toolStripButtonCreate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCreate.Name = "toolStripButtonCreate";
+            this.toolStripButtonCreate.Size = new System.Drawing.Size(61, 22);
+            this.toolStripButtonCreate.Text = "Create";
+            // 
+            // toolStripButtonEdit
+            // 
+            this.toolStripButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEdit.Image")));
+            this.toolStripButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEdit.Name = "toolStripButtonEdit";
+            this.toolStripButtonEdit.Size = new System.Drawing.Size(47, 22);
+            this.toolStripButtonEdit.Text = "Edit";
+            this.toolStripButtonEdit.Click += new System.EventHandler(this.toolStripButtonEdit_Click);
+            // 
+            // toolStripButtonDelete
+            // 
+            this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
+            this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDelete.Name = "toolStripButtonDelete";
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(60, 22);
+            this.toolStripButtonDelete.Text = "Delete";
             // 
             // sellsBindingSource
             // 
@@ -173,31 +198,6 @@
             // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
             // 
-            // toolStripButtonCreate
-            // 
-            this.toolStripButtonCreate.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCreate.Image")));
-            this.toolStripButtonCreate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonCreate.Name = "toolStripButtonCreate";
-            this.toolStripButtonCreate.Size = new System.Drawing.Size(61, 22);
-            this.toolStripButtonCreate.Text = "Create";
-            // 
-            // toolStripButtonEdit
-            // 
-            this.toolStripButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEdit.Image")));
-            this.toolStripButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonEdit.Name = "toolStripButtonEdit";
-            this.toolStripButtonEdit.Size = new System.Drawing.Size(47, 22);
-            this.toolStripButtonEdit.Text = "Edit";
-            this.toolStripButtonEdit.Click += new System.EventHandler(this.toolStripButtonEdit_Click);
-            // 
-            // toolStripButtonDelete
-            // 
-            this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
-            this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonDelete.Name = "toolStripButtonDelete";
-            this.toolStripButtonDelete.Size = new System.Drawing.Size(60, 22);
-            this.toolStripButtonDelete.Text = "Delete";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,7 +213,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSells)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sellsBindingSource)).EndInit();
@@ -230,7 +230,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewSells;
         private cpDataSet cpDataSet;
         private System.Windows.Forms.BindingSource sellsBindingSource;
         private cpDataSetTableAdapters.SellsTableAdapter sellsTableAdapter;

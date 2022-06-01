@@ -37,8 +37,8 @@
             this.labelSDate = new System.Windows.Forms.Label();
             this.labelSQuantity = new System.Windows.Forms.Label();
             this.labelSSellingPrice = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.numericUpDownSQuantity = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownSSellingPrice = new System.Windows.Forms.NumericUpDown();
@@ -124,25 +124,25 @@
             this.labelSSellingPrice.TabIndex = 11;
             this.labelSSellingPrice.Text = "Цена:";
             // 
-            // button1
+            // buttonOK
             // 
-            this.button1.Location = new System.Drawing.Point(103, 243);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonOK.Location = new System.Drawing.Point(103, 243);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(75, 23);
+            this.buttonOK.TabIndex = 13;
+            this.buttonOK.Text = "OK";
+            this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
-            // button2
+            // buttonCancel
             // 
-            this.button2.Location = new System.Drawing.Point(294, 243);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonCancel.Location = new System.Drawing.Point(294, 243);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 14;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // dateTimePicker1
             // 
@@ -189,8 +189,8 @@
             this.Controls.Add(this.numericUpDownSSellingPrice);
             this.Controls.Add(this.numericUpDownSQuantity);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.labelSSellingPrice);
             this.Controls.Add(this.labelSQuantity);
             this.Controls.Add(this.labelSDate);
@@ -220,8 +220,8 @@
         private System.Windows.Forms.Label labelSDate;
         private System.Windows.Forms.Label labelSQuantity;
         private System.Windows.Forms.Label labelSSellingPrice;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.NumericUpDown numericUpDownSQuantity;
         private System.Windows.Forms.NumericUpDown numericUpDownSSellingPrice;
