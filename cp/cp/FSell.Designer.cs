@@ -66,7 +66,7 @@
             // labelSGID
             // 
             this.labelSGID.AutoSize = true;
-            this.labelSGID.Location = new System.Drawing.Point(25, 65);
+            this.labelSGID.Location = new System.Drawing.Point(25, 70);
             this.labelSGID.Name = "labelSGID";
             this.labelSGID.Size = new System.Drawing.Size(67, 13);
             this.labelSGID.TabIndex = 2;
@@ -74,7 +74,7 @@
             // 
             // textBoxSGID
             // 
-            this.textBoxSGID.Location = new System.Drawing.Point(164, 58);
+            this.textBoxSGID.Location = new System.Drawing.Point(164, 63);
             this.textBoxSGID.Name = "textBoxSGID";
             this.textBoxSGID.Size = new System.Drawing.Size(298, 20);
             this.textBoxSGID.TabIndex = 3;
@@ -82,7 +82,7 @@
             // comboBoxSGID
             // 
             this.comboBoxSGID.FormattingEnabled = true;
-            this.comboBoxSGID.Location = new System.Drawing.Point(164, 88);
+            this.comboBoxSGID.Location = new System.Drawing.Point(164, 98);
             this.comboBoxSGID.Name = "comboBoxSGID";
             this.comboBoxSGID.Size = new System.Drawing.Size(298, 21);
             this.comboBoxSGID.TabIndex = 4;
@@ -91,7 +91,7 @@
             // labelGName
             // 
             this.labelGName.AutoSize = true;
-            this.labelGName.Location = new System.Drawing.Point(25, 96);
+            this.labelGName.Location = new System.Drawing.Point(25, 105);
             this.labelGName.Name = "labelGName";
             this.labelGName.Size = new System.Drawing.Size(124, 13);
             this.labelGName.TabIndex = 6;
@@ -100,7 +100,7 @@
             // labelSDate
             // 
             this.labelSDate.AutoSize = true;
-            this.labelSDate.Location = new System.Drawing.Point(25, 127);
+            this.labelSDate.Location = new System.Drawing.Point(25, 140);
             this.labelSDate.Name = "labelSDate";
             this.labelSDate.Size = new System.Drawing.Size(83, 13);
             this.labelSDate.TabIndex = 7;
@@ -109,7 +109,7 @@
             // labelSQuantity
             // 
             this.labelSQuantity.AutoSize = true;
-            this.labelSQuantity.Location = new System.Drawing.Point(25, 160);
+            this.labelSQuantity.Location = new System.Drawing.Point(25, 175);
             this.labelSQuantity.Name = "labelSQuantity";
             this.labelSQuantity.Size = new System.Drawing.Size(69, 13);
             this.labelSQuantity.TabIndex = 8;
@@ -118,7 +118,7 @@
             // labelSSellingPrice
             // 
             this.labelSSellingPrice.AutoSize = true;
-            this.labelSSellingPrice.Location = new System.Drawing.Point(25, 193);
+            this.labelSSellingPrice.Location = new System.Drawing.Point(25, 210);
             this.labelSSellingPrice.Name = "labelSSellingPrice";
             this.labelSSellingPrice.Size = new System.Drawing.Size(36, 13);
             this.labelSSellingPrice.TabIndex = 11;
@@ -126,7 +126,7 @@
             // 
             // buttonOK
             // 
-            this.buttonOK.Location = new System.Drawing.Point(103, 243);
+            this.buttonOK.Location = new System.Drawing.Point(302, 245);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
             this.buttonOK.TabIndex = 13;
@@ -136,7 +136,8 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(294, 243);
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(387, 245);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 14;
@@ -146,14 +147,14 @@
             // 
             // dateTimePickerSells
             // 
-            this.dateTimePickerSells.Location = new System.Drawing.Point(164, 120);
+            this.dateTimePickerSells.Location = new System.Drawing.Point(164, 132);
             this.dateTimePickerSells.Name = "dateTimePickerSells";
             this.dateTimePickerSells.Size = new System.Drawing.Size(298, 20);
             this.dateTimePickerSells.TabIndex = 15;
             // 
             // numericUpDownSQuantity
             // 
-            this.numericUpDownSQuantity.Location = new System.Drawing.Point(164, 153);
+            this.numericUpDownSQuantity.Location = new System.Drawing.Point(164, 168);
             this.numericUpDownSQuantity.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -171,7 +172,7 @@
             0,
             0,
             65536});
-            this.numericUpDownSSellingPrice.Location = new System.Drawing.Point(164, 186);
+            this.numericUpDownSSellingPrice.Location = new System.Drawing.Point(164, 202);
             this.numericUpDownSSellingPrice.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -183,9 +184,11 @@
             // 
             // FSell
             // 
+            this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 296);
+            this.CancelButton = this.buttonCancel;
+            this.ClientSize = new System.Drawing.Size(489, 286);
             this.Controls.Add(this.numericUpDownSSellingPrice);
             this.Controls.Add(this.numericUpDownSQuantity);
             this.Controls.Add(this.dateTimePickerSells);
@@ -200,6 +203,7 @@
             this.Controls.Add(this.labelSGID);
             this.Controls.Add(this.textBoxSellID);
             this.Controls.Add(this.labelSellID);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FSell";
             this.Text = "Продажи";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSQuantity)).EndInit();

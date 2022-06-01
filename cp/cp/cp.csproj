@@ -74,6 +74,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>cpDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FGood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FGood.Designer.cs">
+      <DependentUpon>FGood.cs</DependentUpon>
+    </Compile>
     <Compile Include="FList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FGood.resx">
+      <DependentUpon>FGood.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FList.resx">
       <DependentUpon>FList.cs</DependentUpon>
     </EmbeddedResource>
