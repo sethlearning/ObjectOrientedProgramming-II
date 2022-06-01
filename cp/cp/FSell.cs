@@ -27,13 +27,11 @@ namespace cp
             if (isNewSell)
             {
                 this.Text = $"Новая продажа";
-                //int id = (int)dr[1];
 
                 textBoxSellID.Text = "New";
                 comboBoxSGID.DataSource = dtg;
                 comboBoxSGID.DisplayMember = "GName";
                 comboBoxSGID.ValueMember = "GID";
-                //comboBoxSGID.SelectedValue = id;
                 textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
             }
 
@@ -55,6 +53,7 @@ namespace cp
             }
         }
 
+        /*
         public FSell(DataTable dtg)
         {
             InitializeComponent();
@@ -67,27 +66,11 @@ namespace cp
             //comboBoxSGID.SelectedValue = id;
             textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
         }
+        */
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
-            //(dts.Rows[0])[dts.Columns[0]] = Convert.ToInt32(textBox1.Text);
-            /*
-            if (isNewSell)
-            {
-                //isNewSell = false;
-                dr[0] = 1;
-                //dr = new DataRow(new DataRowBuilder());
-            }
-            */
-
-            /*
-            if (dr[0].ToString() != textBoxSellID.Text)
-            {
-                dr[0] = Convert.ToInt32(textBoxSellID.Text);
-                dataChanged = true;
-            }
-            */
 
             if ((DateTime)dr[2] != dateTimePickerSells.Value)
             {

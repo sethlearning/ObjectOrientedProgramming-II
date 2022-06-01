@@ -78,18 +78,13 @@ namespace cp
             dtg = goodsTableAdapter.GetData();
 
             FSell f2 = new FSell(dr, dtg, true);
-            //FSell f2 = new FSell(dtg);
             DialogResult res = f2.ShowDialog();
 
             if (res == DialogResult.OK)
             {
                 cpDataSet.SellsRow sellsRow = cpDataSet.Sells.NewSellsRow();
-                //sellsRow.SellID.
                 sellsRow.SGID = (int)dr[1];
                 sellsRow.SDate = (DateTime)dr[2];
-                //sellsRow.SDate.Hour = 0;
-                //sellsRow.SDate.Minute = 0;
-                //sellsRow.SDate.Second = 0;
 
                 sellsRow.SQuantity = (int)dr[3];
                 sellsRow.SSellingPrice = (decimal)dr[4];
@@ -97,13 +92,8 @@ namespace cp
                 cpDataSet.Sells.Rows.Add(sellsRow);
                 tableAdapterManager.UpdateAll(cpDataSet);
 
-                //this.sellsTableAdapter.FillExt(this.cpDataSet.Sells);
-                //dt = this.sellsTableAdapter.GetDataExt();
-                //bs.DataSource = dt;
-
                 FillDataSells();
                 bs.DataSource = dt;
-                //MessageBox.Show(cpDataSet.HasChanges().ToString());
 
                 dataGridViewSells.CurrentCell = dataGridViewSells.Rows[dataGridViewSells.Rows.Count - 2].Cells[0];
             }
@@ -112,8 +102,6 @@ namespace cp
 
         private void EditSells(int i)
         {
-            //dr = dt.Rows[e.RowIndex];
-            //dr = dt.Rows[dataGridView1.SelectedCells[0].RowIndex];
             dr = dt.Rows[i];
             DataTable dtg = new DataTable();
             goodsTableAdapter.Fill(this.cpDataSet.Goods);
@@ -133,8 +121,6 @@ namespace cp
 
                 tableAdapterManager.UpdateAll(cpDataSet);
 
-                // MessageBox.Show(cpDataSet.HasChanges().ToString());
-
                 if (f2.gNameChanged)
                     dt.Rows[i][5] = goodsTableAdapter.GetGNameByGID((int)dr[1]);
             }
@@ -146,12 +132,11 @@ namespace cp
             dr = dt.Rows[i];
             cpDataSet.SellsRow sellsRow = cpDataSet.Sells.FindBySellID((int)dr[0]);
             sellsRow.Delete();
-            //MessageBox.Show(cpDataSet.HasChanges().ToString());
+
             tableAdapterManager.UpdateAll(cpDataSet);
 
             FillDataSells();
             bs.DataSource = dt;
-            //MessageBox.Show(cpDataSet.HasChanges().ToString());
 
             if (i > dataGridViewSells.Rows.Count - 2)
                 dataGridViewSells.CurrentCell = dataGridViewSells.Rows[dataGridViewSells.Rows.Count - 2].Cells[0];
@@ -165,7 +150,6 @@ namespace cp
                 EditSells(e.RowIndex);
             else if (e.RowIndex == dataGridViewSells.Rows.Count - 1)    // NEW
                 NewSells();
-                //MessageBox.Show("NEW");
         }
 
         private void toolStripButtonEdit_Click(object sender, EventArgs e)
@@ -176,7 +160,6 @@ namespace cp
                     EditSells(dataGridViewSells.SelectedCells[0].RowIndex);
                 else if (dataGridViewSells.SelectedCells[0].RowIndex == dataGridViewSells.Rows.Count - 1)   // NEW
                     NewSells();
-                        //MessageBox.Show("NEW");
             }
         }
 
