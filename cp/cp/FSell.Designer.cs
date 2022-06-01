@@ -39,7 +39,7 @@
             this.labelSSellingPrice = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerSells = new System.Windows.Forms.DateTimePicker();
             this.numericUpDownSQuantity = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownSSellingPrice = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSQuantity)).BeginInit();
@@ -144,12 +144,12 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // dateTimePicker1
+            // dateTimePickerSells
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(164, 120);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(298, 20);
-            this.dateTimePicker1.TabIndex = 15;
+            this.dateTimePickerSells.Location = new System.Drawing.Point(164, 120);
+            this.dateTimePickerSells.Name = "dateTimePickerSells";
+            this.dateTimePickerSells.Size = new System.Drawing.Size(298, 20);
+            this.dateTimePickerSells.TabIndex = 15;
             // 
             // numericUpDownSQuantity
             // 
@@ -188,7 +188,7 @@
             this.ClientSize = new System.Drawing.Size(489, 296);
             this.Controls.Add(this.numericUpDownSSellingPrice);
             this.Controls.Add(this.numericUpDownSQuantity);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePickerSells);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.labelSSellingPrice);
@@ -222,7 +222,7 @@
         private System.Windows.Forms.Label labelSSellingPrice;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerSells;
         private System.Windows.Forms.NumericUpDown numericUpDownSQuantity;
         private System.Windows.Forms.NumericUpDown numericUpDownSSellingPrice;
     }

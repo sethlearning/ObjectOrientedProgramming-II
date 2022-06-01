@@ -140,6 +140,7 @@
             this.toolStripButtonCreate.Name = "toolStripButtonCreate";
             this.toolStripButtonCreate.Size = new System.Drawing.Size(61, 22);
             this.toolStripButtonCreate.Text = "Create";
+            this.toolStripButtonCreate.Click += new System.EventHandler(this.toolStripButtonCreate_Click);
             // 
             // toolStripButtonEdit
             // 

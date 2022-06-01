@@ -15,30 +15,49 @@ namespace cp
         public DataRow dr;
         public bool gNameChanged = false;
         public bool dataChanged = false;
+        private bool isNewSell;
 
-        public FSell(DataRow idr, DataTable dtg)
+        public FSell(DataRow idr, DataTable dtg, Boolean isNewSell)
         {
             InitializeComponent();
+
+            this.isNewSell = isNewSell;
             dr = idr;
 
-            this.Text = $"Продажа №{dr[0]}";
-            int id = (int)dr[1];
-                        
-            textBoxSellID.Text = dr[0].ToString();
-            numericUpDownSQuantity.Value = Convert.ToDecimal(dr[3]);
-            numericUpDownSSellingPrice.Value = Convert.ToDecimal(dr[4]);
-            dateTimePicker1.Value = (DateTime)dr[2];
+            if (isNewSell)
+            {
+                this.Text = $"Новая продажа";
+                //int id = (int)dr[1];
 
-            comboBoxSGID.DataSource = dtg;
-            comboBoxSGID.DisplayMember = "GName";
-            comboBoxSGID.ValueMember = "GID";
-            comboBoxSGID.SelectedValue = id;
-            textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
+                comboBoxSGID.DataSource = dtg;
+                comboBoxSGID.DisplayMember = "GName";
+                comboBoxSGID.ValueMember = "GID";
+                //comboBoxSGID.SelectedValue = id;
+                textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
+            }
+
+            else
+            {
+                this.Text = $"Продажа №{dr[0]}";
+                int id = (int)dr[1];
+                        
+                textBoxSellID.Text = dr[0].ToString();
+                numericUpDownSQuantity.Value = Convert.ToDecimal(dr[3]);
+                numericUpDownSSellingPrice.Value = Convert.ToDecimal(dr[4]);
+                dateTimePickerSells.Value = (DateTime)dr[2];
+
+                comboBoxSGID.DataSource = dtg;
+                comboBoxSGID.DisplayMember = "GName";
+                comboBoxSGID.ValueMember = "GID";
+                comboBoxSGID.SelectedValue = id;
+                textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
+            }
         }
 
         public FSell(DataTable dtg)
         {
             InitializeComponent();
+            isNewSell = true;
             this.Text = $"Новая продажа";
 
             comboBoxSGID.DataSource = dtg;
@@ -52,16 +71,26 @@ namespace cp
         {
             this.DialogResult = DialogResult.OK;
             //(dts.Rows[0])[dts.Columns[0]] = Convert.ToInt32(textBox1.Text);
+            /*
+            if (isNewSell)
+            {
+                //isNewSell = false;
+                dr[0] = 1;
+                //dr = new DataRow(new DataRowBuilder());
+            }
+            */
 
+            /*
             if (dr[0].ToString() != textBoxSellID.Text)
             {
                 dr[0] = Convert.ToInt32(textBoxSellID.Text);
                 dataChanged = true;
             }
+            */
 
-            if (dr[2] != dateTimePicker1)
+            if ((DateTime)dr[2] != dateTimePickerSells.Value)
             {
-                dr[2] = dateTimePicker1.Value;
+                dr[2] = dateTimePickerSells.Value.Date;
                 dataChanged = true;
             }
 

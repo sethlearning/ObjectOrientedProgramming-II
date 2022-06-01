@@ -72,12 +72,42 @@ namespace cp
 
         private void NewSells()
         {
+            dr = dt.Rows[0];
             DataTable dtg = new DataTable();
             goodsTableAdapter.Fill(this.cpDataSet.Goods);
             dtg = goodsTableAdapter.GetData();
 
-            FSell f2 = new FSell(dtg);
+            FSell f2 = new FSell(dr, dtg, true);
+            //FSell f2 = new FSell(dtg);
             DialogResult res = f2.ShowDialog();
+
+            if (res == DialogResult.OK)
+            {
+                cpDataSet.SellsRow sellsRow = cpDataSet.Sells.NewSellsRow();
+                //sellsRow.SellID.
+                sellsRow.SGID = (int)dr[1];
+                sellsRow.SDate = (DateTime)dr[2];
+                //sellsRow.SDate.Hour = 0;
+                //sellsRow.SDate.Minute = 0;
+                //sellsRow.SDate.Second = 0;
+
+                sellsRow.SQuantity = (int)dr[3];
+                sellsRow.SSellingPrice = (decimal)dr[4];
+
+                cpDataSet.Sells.Rows.Add(sellsRow);
+                tableAdapterManager.UpdateAll(cpDataSet);
+
+                //this.sellsTableAdapter.FillExt(this.cpDataSet.Sells);
+                //dt = this.sellsTableAdapter.GetDataExt();
+                //bs.DataSource = dt;
+
+                FillDataSells();
+                bs.DataSource = dt;
+                //MessageBox.Show(cpDataSet.HasChanges().ToString());
+
+                dataGridViewSells.CurrentCell = dataGridViewSells.Rows[dataGridViewSells.Rows.Count - 2].Cells[0];
+            }
+            f2.Dispose();
         }
 
         private void EditSells(int i)
@@ -89,7 +119,7 @@ namespace cp
             goodsTableAdapter.Fill(this.cpDataSet.Goods);
             dtg = goodsTableAdapter.GetData();
 
-            FSell f2 = new FSell(dr, dtg);
+            FSell f2 = new FSell(dr, dtg, false);
             DialogResult res = f2.ShowDialog();
 
             if (res == DialogResult.OK && f2.dataChanged)
@@ -128,6 +158,12 @@ namespace cp
                 else if (dataGridViewSells.SelectedCells[0].RowIndex == dataGridViewSells.Rows.Count - 1)   // NEW
                     MessageBox.Show("NEW");
             }
+        }
+
+        private void toolStripButtonCreate_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.TabIndex == 0)
+                NewSells();
         }
     }
 }
