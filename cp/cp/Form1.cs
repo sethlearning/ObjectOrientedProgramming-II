@@ -106,10 +106,7 @@ namespace cp
                 // MessageBox.Show(cpDataSet.HasChanges().ToString());
 
                 if (f2.gNameChanged)
-                {
-                    FillDataSells();
-                    bs.DataSource = dt;
-                }
+                    dt.Rows[i][5] = goodsTableAdapter.GetGNameByGID((int)dr[1]);
             }
             f2.Dispose();
         }
