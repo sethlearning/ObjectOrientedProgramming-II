@@ -76,10 +76,10 @@
               <Mapping SourceColumn="GBuyingPrice" DataSetColumn="GBuyingPrice" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="cpConnectionString (Settings)" DbObjectName="Goods" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="cpConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillExt" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataExt" GeneratorSourceName="FillExt" GetMethodModifier="Public" GetMethodName="GetDataExt" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataExt" UserSourceName="FillExt">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT GID, GName, GSupplierID, GSupplyDate, GQuantity, GBuyingPrice FROM Goods</CommandText>
+                    <CommandText>SELECT G.GID, G.GName, G.GSupplierID, S.SName, G.GSupplyDate, G.GQuantity, G.GBuyingPrice FROM Goods AS G INNER JOIN Suppliers AS S ON G.GSupplierID = S.SupplierID</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -328,8 +328,8 @@ WHERE        (SellID = @SellID)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="SuppliersGoods" msdata:parent="Suppliers" msdata:child="Goods" msdata:parentkey="SupplierID" msdata:childkey="GSupplierID" msprop:Generator_UserParentTable="Suppliers" msprop:Generator_UserChildTable="Goods" msprop:Generator_RelationVarName="relationSuppliersGoods" msprop:Generator_ChildPropName="GetGoodsRows" msprop:Generator_UserRelationName="SuppliersGoods" msprop:Generator_ParentPropName="SuppliersRow" />
-      <msdata:Relationship name="GoodsSells" msdata:parent="Goods" msdata:child="Sells" msdata:parentkey="GID" msdata:childkey="SGID" msprop:Generator_UserParentTable="Goods" msprop:Generator_UserChildTable="Sells" msprop:Generator_RelationVarName="relationGoodsSells" msprop:Generator_ChildPropName="GetSellsRows" msprop:Generator_ParentPropName="GoodsRow" msprop:Generator_UserRelationName="GoodsSells" />
+      <msdata:Relationship name="SuppliersGoods" msdata:parent="Suppliers" msdata:child="Goods" msdata:parentkey="SupplierID" msdata:childkey="GSupplierID" msprop:Generator_UserParentTable="Suppliers" msprop:Generator_UserChildTable="Goods" msprop:Generator_RelationVarName="relationSuppliersGoods" msprop:Generator_ChildPropName="GetGoodsRows" msprop:Generator_ParentPropName="SuppliersRow" msprop:Generator_UserRelationName="SuppliersGoods" />
+      <msdata:Relationship name="GoodsSells" msdata:parent="Goods" msdata:child="Sells" msdata:parentkey="GID" msdata:childkey="SGID" msprop:Generator_UserParentTable="Goods" msprop:Generator_UserChildTable="Sells" msprop:Generator_RelationVarName="relationGoodsSells" msprop:Generator_ChildPropName="GetSellsRows" msprop:Generator_UserRelationName="GoodsSells" msprop:Generator_ParentPropName="GoodsRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

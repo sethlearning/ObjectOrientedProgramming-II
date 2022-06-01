@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FList));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabControlLists = new System.Windows.Forms.TabControl();
+            this.tabPageSells = new System.Windows.Forms.TabPage();
             this.dataGridViewSells = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageGoods = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonCreate = new System.Windows.Forms.ToolStripButton();
@@ -48,39 +48,43 @@
             this.goodsTableAdapter = new cp.cpDataSetTableAdapters.GoodsTableAdapter();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersTableAdapter = new cp.cpDataSetTableAdapters.SuppliersTableAdapter();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.dataGridViewGoods = new System.Windows.Forms.DataGridView();
+            this.tabControlLists.SuspendLayout();
+            this.tabPageSells.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSells)).BeginInit();
+            this.tabPageGoods.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sellsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGoods)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControlLists
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tabControlLists.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(12, 52);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(784, 364);
-            this.tabControl1.TabIndex = 0;
+            this.tabControlLists.Controls.Add(this.tabPageSells);
+            this.tabControlLists.Controls.Add(this.tabPageGoods);
+            this.tabControlLists.Location = new System.Drawing.Point(12, 52);
+            this.tabControlLists.Name = "tabControlLists";
+            this.tabControlLists.SelectedIndex = 0;
+            this.tabControlLists.Size = new System.Drawing.Size(784, 364);
+            this.tabControlLists.TabIndex = 0;
+            this.tabControlLists.SelectedIndexChanged += new System.EventHandler(this.tabControlLists_SelectedIndexChanged);
             // 
-            // tabPage1
+            // tabPageSells
             // 
-            this.tabPage1.Controls.Add(this.dataGridViewSells);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(776, 338);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Продажи";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPageSells.Controls.Add(this.dataGridViewSells);
+            this.tabPageSells.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSells.Name = "tabPageSells";
+            this.tabPageSells.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSells.Size = new System.Drawing.Size(776, 338);
+            this.tabPageSells.TabIndex = 0;
+            this.tabPageSells.Text = "Продажи";
+            this.tabPageSells.UseVisualStyleBackColor = true;
             // 
             // dataGridViewSells
             // 
@@ -95,15 +99,16 @@
             this.dataGridViewSells.TabIndex = 0;
             this.dataGridViewSells.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // tabPage2
+            // tabPageGoods
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(776, 338);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageGoods.Controls.Add(this.dataGridViewGoods);
+            this.tabPageGoods.Location = new System.Drawing.Point(4, 22);
+            this.tabPageGoods.Name = "tabPageGoods";
+            this.tabPageGoods.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageGoods.Size = new System.Drawing.Size(776, 338);
+            this.tabPageGoods.TabIndex = 1;
+            this.tabPageGoods.Text = "Товары";
+            this.tabPageGoods.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -200,6 +205,14 @@
             // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
             // 
+            // dataGridViewGoods
+            // 
+            this.dataGridViewGoods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewGoods.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewGoods.Name = "dataGridViewGoods";
+            this.dataGridViewGoods.Size = new System.Drawing.Size(764, 326);
+            this.dataGridViewGoods.TabIndex = 0;
+            // 
             // FList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,21 +220,23 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControlLists);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FList";
             this.Text = "Computer equipment";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tabControlLists.ResumeLayout(false);
+            this.tabPageSells.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSells)).EndInit();
+            this.tabPageGoods.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sellsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGoods)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,9 +244,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tabControlLists;
+        private System.Windows.Forms.TabPage tabPageSells;
+        private System.Windows.Forms.TabPage tabPageGoods;
         private System.Windows.Forms.DataGridView dataGridViewSells;
         private cpDataSet cpDataSet;
         private System.Windows.Forms.BindingSource sellsBindingSource;
@@ -247,6 +262,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonCreate;
         private System.Windows.Forms.ToolStripButton toolStripButtonEdit;
         private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
+        private System.Windows.Forms.DataGridView dataGridViewGoods;
     }
 }
 

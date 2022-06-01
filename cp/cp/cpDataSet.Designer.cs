@@ -2112,7 +2112,9 @@ namespace cp.cpDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT GID, GName, GSupplierID, GSupplyDate, GQuantity, GBuyingPrice FROM Goods";
+            this._commandCollection[1].CommandText = "SELECT G.GID, G.GName, G.GSupplierID, S.SName, G.GSupplyDate, G.GQuantity, G.GBuy" +
+                "ingPrice FROM Goods AS G INNER JOIN Suppliers AS S ON G.GSupplierID = S.Supplier" +
+                "ID";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[2].Connection = this.Connection;
@@ -2149,7 +2151,7 @@ namespace cp.cpDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(cpDataSet.GoodsDataTable dataTable) {
+        public virtual int FillExt(cpDataSet.GoodsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2162,7 +2164,7 @@ namespace cp.cpDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual cpDataSet.GoodsDataTable GetDataBy() {
+        public virtual cpDataSet.GoodsDataTable GetDataExt() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             cpDataSet.GoodsDataTable dataTable = new cpDataSet.GoodsDataTable();
             this.Adapter.Fill(dataTable);
