@@ -129,19 +129,22 @@ namespace cp
 
         private void DeleteSells(int i)
         {
-            dr = dt.Rows[i];
-            cpDataSet.SellsRow sellsRow = cpDataSet.Sells.FindBySellID((int)dr[0]);
-            sellsRow.Delete();
+            if (MessageBox.Show("Remove record?", "Attention", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                dr = dt.Rows[i];
+                cpDataSet.SellsRow sellsRow = cpDataSet.Sells.FindBySellID((int)dr[0]);
+                sellsRow.Delete();
 
-            tableAdapterManager.UpdateAll(cpDataSet);
+                tableAdapterManager.UpdateAll(cpDataSet);
 
-            FillDataSells();
-            bs.DataSource = dt;
+                FillDataSells();
+                bs.DataSource = dt;
 
-            if (i > dataGridViewSells.Rows.Count - 2)
-                dataGridViewSells.CurrentCell = dataGridViewSells.Rows[dataGridViewSells.Rows.Count - 2].Cells[0];
-            else
-                dataGridViewSells.CurrentCell = dataGridViewSells.Rows[i].Cells[0];
+                if (i > dataGridViewSells.Rows.Count - 2)
+                    dataGridViewSells.CurrentCell = dataGridViewSells.Rows[dataGridViewSells.Rows.Count - 2].Cells[0];
+                else
+                    dataGridViewSells.CurrentCell = dataGridViewSells.Rows[i].Cells[0];
+            }
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
