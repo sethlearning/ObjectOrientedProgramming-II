@@ -19,8 +19,9 @@ namespace cp
         public FSell(DataRow idr, DataTable dtg)
         {
             InitializeComponent();
-
             dr = idr;
+
+            this.Text = $"Продажа №{dr[0]}";
             int id = (int)dr[1];
                         
             textBoxSellID.Text = dr[0].ToString();
@@ -32,6 +33,18 @@ namespace cp
             comboBoxSGID.DisplayMember = "GName";
             comboBoxSGID.ValueMember = "GID";
             comboBoxSGID.SelectedValue = id;
+            textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
+        }
+
+        public FSell(DataTable dtg)
+        {
+            InitializeComponent();
+            this.Text = $"Новая продажа";
+
+            comboBoxSGID.DataSource = dtg;
+            comboBoxSGID.DisplayMember = "GName";
+            comboBoxSGID.ValueMember = "GID";
+            //comboBoxSGID.SelectedValue = id;
             textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
         }
 
@@ -82,8 +95,5 @@ namespace cp
 
         private void comboBoxSGID_SelectedIndexChanged(object sender, EventArgs e) => 
             textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
-
-        private void FSell_Load(object sender, EventArgs e) =>
-            this.Text = $"Продажа №{dr[0]}";
     }
 }

@@ -59,6 +59,7 @@
             // 
             this.textBoxSellID.Location = new System.Drawing.Point(164, 28);
             this.textBoxSellID.Name = "textBoxSellID";
+            this.textBoxSellID.ReadOnly = true;
             this.textBoxSellID.Size = new System.Drawing.Size(298, 20);
             this.textBoxSellID.TabIndex = 1;
             // 
@@ -201,7 +202,6 @@
             this.Controls.Add(this.labelSellID);
             this.Name = "FSell";
             this.Text = "Продажи";
-            this.Load += new System.EventHandler(this.FSell_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSSellingPrice)).EndInit();
             this.ResumeLayout(false);

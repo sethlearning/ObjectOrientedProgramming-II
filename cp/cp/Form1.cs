@@ -70,10 +70,21 @@ namespace cp
             dtSells = this.sellsTableAdapter.GetData();
         }
 
+        private void NewSells()
+        {
+            DataTable dtg = new DataTable();
+            goodsTableAdapter.Fill(this.cpDataSet.Goods);
+            dtg = goodsTableAdapter.GetData();
+
+            FSell f2 = new FSell(dtg);
+            DialogResult res = f2.ShowDialog();
+        }
+
         private void EditSells(int i)
         {
             //dr = dt.Rows[e.RowIndex];
-            dr = dt.Rows[dataGridView1.SelectedCells[0].RowIndex];
+            //dr = dt.Rows[dataGridView1.SelectedCells[0].RowIndex];
+            dr = dt.Rows[i];
             DataTable dtg = new DataTable();
             goodsTableAdapter.Fill(this.cpDataSet.Goods);
             dtg = goodsTableAdapter.GetData();
@@ -107,7 +118,8 @@ namespace cp
             if (e.RowIndex < dataGridView1.Rows.Count - 1)  // EDIT
                 EditSells(e.RowIndex);
             else if (e.RowIndex == dataGridView1.Rows.Count - 1)    // NEW
-                MessageBox.Show("NEW");
+                NewSells();
+                //MessageBox.Show("NEW");
         }
 
         private void toolStripButtonEdit_Click(object sender, EventArgs e)
