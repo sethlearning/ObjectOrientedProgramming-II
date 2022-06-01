@@ -29,6 +29,7 @@ namespace cp
                 this.Text = $"Новая продажа";
                 //int id = (int)dr[1];
 
+                textBoxSellID.Text = "New";
                 comboBoxSGID.DataSource = dtg;
                 comboBoxSGID.DisplayMember = "GName";
                 comboBoxSGID.ValueMember = "GID";

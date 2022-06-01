@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace cp
 {
-    public partial class Form1 : Form
+    public partial class FList : Form
     {
         private BindingSource bs = new BindingSource();
         private DataTable dt = new DataTable();
         private DataTable dtSells = new DataTable();
         private DataRow dr;
 
-        public Form1()
+        public FList()
         {
             InitializeComponent();
         }
@@ -156,7 +156,8 @@ namespace cp
                 if (dataGridViewSells.SelectedCells[0].RowIndex < dataGridViewSells.Rows.Count - 1) // EDIT
                     EditSells(dataGridViewSells.SelectedCells[0].RowIndex);
                 else if (dataGridViewSells.SelectedCells[0].RowIndex == dataGridViewSells.Rows.Count - 1)   // NEW
-                    MessageBox.Show("NEW");
+                    NewSells();
+                        //MessageBox.Show("NEW");
             }
         }
 

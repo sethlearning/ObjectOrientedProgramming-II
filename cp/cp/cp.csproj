@@ -74,11 +74,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>cpDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="FList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FList.Designer.cs">
+      <DependentUpon>FList.cs</DependentUpon>
     </Compile>
     <Compile Include="FSell.cs">
       <SubType>Form</SubType>
@@ -88,8 +88,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FList.resx">
+      <DependentUpon>FList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FSell.resx">
       <DependentUpon>FSell.cs</DependentUpon>
