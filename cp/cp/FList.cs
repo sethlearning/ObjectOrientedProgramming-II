@@ -140,6 +140,25 @@ namespace cp
             }
             f2.Dispose();
         }
+
+        private void DeleteSells(int i)
+        {
+            dr = dt.Rows[i];
+            cpDataSet.SellsRow sellsRow = cpDataSet.Sells.FindBySellID((int)dr[0]);
+            sellsRow.Delete();
+            //MessageBox.Show(cpDataSet.HasChanges().ToString());
+            tableAdapterManager.UpdateAll(cpDataSet);
+
+            FillDataSells();
+            bs.DataSource = dt;
+            //MessageBox.Show(cpDataSet.HasChanges().ToString());
+
+            if (i > dataGridViewSells.Rows.Count - 2)
+                dataGridViewSells.CurrentCell = dataGridViewSells.Rows[dataGridViewSells.Rows.Count - 2].Cells[0];
+            else
+                dataGridViewSells.CurrentCell = dataGridViewSells.Rows[i].Cells[0];
+        }
+
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < dataGridViewSells.Rows.Count - 1)  // EDIT
@@ -165,6 +184,14 @@ namespace cp
         {
             if (tabControl1.TabIndex == 0)
                 NewSells();
+        }
+
+        private void toolStripButtonDelete_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.TabIndex == 0 &&
+                dataGridViewSells.SelectedCells.Count > 0 &&
+                dataGridViewSells.SelectedCells[0].RowIndex < dataGridViewSells.Rows.Count - 1)
+                    DeleteSells(dataGridViewSells.SelectedCells[0].RowIndex);
         }
     }
 }
