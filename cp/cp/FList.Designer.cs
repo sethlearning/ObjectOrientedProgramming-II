@@ -35,7 +35,7 @@
             this.dataGridViewSells = new System.Windows.Forms.DataGridView();
             this.tabPageGoods = new System.Windows.Forms.TabPage();
             this.dataGridViewGoods = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPageSuppliers = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonCreate = new System.Windows.Forms.ToolStripButton();
@@ -50,16 +50,19 @@
             this.goodsTableAdapter = new cp.cpDataSetTableAdapters.GoodsTableAdapter();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersTableAdapter = new cp.cpDataSetTableAdapters.SuppliersTableAdapter();
+            this.dataGridViewSuppliers = new System.Windows.Forms.DataGridView();
             this.tabControlLists.SuspendLayout();
             this.tabPageSells.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSells)).BeginInit();
             this.tabPageGoods.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGoods)).BeginInit();
+            this.tabPageSuppliers.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sellsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuppliers)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlLists
@@ -69,7 +72,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlLists.Controls.Add(this.tabPageSells);
             this.tabControlLists.Controls.Add(this.tabPageGoods);
-            this.tabControlLists.Controls.Add(this.tabPage3);
+            this.tabControlLists.Controls.Add(this.tabPageSuppliers);
             this.tabControlLists.Location = new System.Drawing.Point(12, 52);
             this.tabControlLists.Name = "tabControlLists";
             this.tabControlLists.SelectedIndex = 0;
@@ -124,15 +127,16 @@
             this.dataGridViewGoods.TabIndex = 0;
             this.dataGridViewGoods.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGoods_CellDoubleClick);
             // 
-            // tabPage3
+            // tabPageSuppliers
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(850, 339);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPageSuppliers.Controls.Add(this.dataGridViewSuppliers);
+            this.tabPageSuppliers.Location = new System.Drawing.Point(4, 22);
+            this.tabPageSuppliers.Name = "tabPageSuppliers";
+            this.tabPageSuppliers.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSuppliers.Size = new System.Drawing.Size(850, 339);
+            this.tabPageSuppliers.TabIndex = 2;
+            this.tabPageSuppliers.Text = "Поставщики";
+            this.tabPageSuppliers.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -229,6 +233,17 @@
             // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
             // 
+            // dataGridViewSuppliers
+            // 
+            this.dataGridViewSuppliers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSuppliers.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewSuppliers.Name = "dataGridViewSuppliers";
+            this.dataGridViewSuppliers.Size = new System.Drawing.Size(838, 327);
+            this.dataGridViewSuppliers.TabIndex = 0;
+            // 
             // FList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,12 +263,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSells)).EndInit();
             this.tabPageGoods.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGoods)).EndInit();
+            this.tabPageSuppliers.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sellsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuppliers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,7 +297,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonEdit;
         private System.Windows.Forms.ToolStripButton toolStripButtonDelete;
         private System.Windows.Forms.DataGridView dataGridViewGoods;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPageSuppliers;
+        private System.Windows.Forms.DataGridView dataGridViewSuppliers;
     }
 }
 
