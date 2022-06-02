@@ -36,12 +36,16 @@
             this.tabPageGoods = new System.Windows.Forms.TabPage();
             this.dataGridViewGoods = new System.Windows.Forms.DataGridView();
             this.tabPageSuppliers = new System.Windows.Forms.TabPage();
+            this.dataGridViewSuppliers = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonCreate = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEdit = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonExit = new System.Windows.Forms.ToolStripButton();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.sellsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cpDataSet = new cp.cpDataSet();
             this.sellsTableAdapter = new cp.cpDataSetTableAdapters.SellsTableAdapter();
@@ -50,19 +54,19 @@
             this.goodsTableAdapter = new cp.cpDataSetTableAdapters.GoodsTableAdapter();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersTableAdapter = new cp.cpDataSetTableAdapters.SuppliersTableAdapter();
-            this.dataGridViewSuppliers = new System.Windows.Forms.DataGridView();
             this.tabControlLists.SuspendLayout();
             this.tabPageSells.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSells)).BeginInit();
             this.tabPageGoods.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGoods)).BeginInit();
             this.tabPageSuppliers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuppliers)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sellsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuppliers)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlLists
@@ -138,6 +142,18 @@
             this.tabPageSuppliers.Text = "Поставщики";
             this.tabPageSuppliers.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewSuppliers
+            // 
+            this.dataGridViewSuppliers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSuppliers.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewSuppliers.Name = "dataGridViewSuppliers";
+            this.dataGridViewSuppliers.Size = new System.Drawing.Size(838, 327);
+            this.dataGridViewSuppliers.TabIndex = 0;
+            this.dataGridViewSuppliers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSuppliers_CellDoubleClick);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -151,7 +167,9 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonCreate,
             this.toolStripButtonEdit,
-            this.toolStripButtonDelete});
+            this.toolStripButtonDelete,
+            this.toolStripSeparator1,
+            this.toolStripButtonExit});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(874, 25);
@@ -160,38 +178,69 @@
             // 
             // toolStripButtonCreate
             // 
+            this.toolStripButtonCreate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButtonCreate.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCreate.Image")));
             this.toolStripButtonCreate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCreate.Name = "toolStripButtonCreate";
-            this.toolStripButtonCreate.Size = new System.Drawing.Size(61, 22);
-            this.toolStripButtonCreate.Text = "Create";
+            this.toolStripButtonCreate.Size = new System.Drawing.Size(54, 22);
+            this.toolStripButtonCreate.Text = "Создать";
             this.toolStripButtonCreate.Click += new System.EventHandler(this.toolStripButtonCreate_Click);
+            this.toolStripButtonCreate.MouseEnter += new System.EventHandler(this.toolStripButtonCreate_MouseEnter);
+            this.toolStripButtonCreate.MouseLeave += new System.EventHandler(this.CleatStatusLabel);
             // 
             // toolStripButtonEdit
             // 
+            this.toolStripButtonEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEdit.Image")));
             this.toolStripButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEdit.Name = "toolStripButtonEdit";
-            this.toolStripButtonEdit.Size = new System.Drawing.Size(47, 22);
-            this.toolStripButtonEdit.Text = "Edit";
+            this.toolStripButtonEdit.Size = new System.Drawing.Size(91, 22);
+            this.toolStripButtonEdit.Text = "Редактировать";
             this.toolStripButtonEdit.Click += new System.EventHandler(this.toolStripButtonEdit_Click);
+            this.toolStripButtonEdit.MouseEnter += new System.EventHandler(this.toolStripButtonEdit_MouseEnter);
+            this.toolStripButtonEdit.MouseLeave += new System.EventHandler(this.CleatStatusLabel);
             // 
             // toolStripButtonDelete
             // 
+            this.toolStripButtonDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
             this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDelete.Name = "toolStripButtonDelete";
-            this.toolStripButtonDelete.Size = new System.Drawing.Size(60, 22);
-            this.toolStripButtonDelete.Text = "Delete";
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(55, 22);
+            this.toolStripButtonDelete.Text = "Удалить";
             this.toolStripButtonDelete.Click += new System.EventHandler(this.toolStripButtonDelete_Click);
+            this.toolStripButtonDelete.MouseEnter += new System.EventHandler(this.toolStripButtonDelete_MouseEnter);
+            this.toolStripButtonDelete.MouseLeave += new System.EventHandler(this.CleatStatusLabel);
             // 
-            // statusStrip1
+            // toolStripSeparator1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 429);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(874, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButtonExit
+            // 
+            this.toolStripButtonExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonExit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonExit.Image")));
+            this.toolStripButtonExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonExit.Name = "toolStripButtonExit";
+            this.toolStripButtonExit.Size = new System.Drawing.Size(46, 22);
+            this.toolStripButtonExit.Text = "Выход";
+            this.toolStripButtonExit.Click += new System.EventHandler(this.toolStripButtonExit_Click);
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 429);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(874, 22);
+            this.statusStrip.TabIndex = 3;
+            this.statusStrip.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // sellsBindingSource
             // 
@@ -233,24 +282,12 @@
             // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewSuppliers
-            // 
-            this.dataGridViewSuppliers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSuppliers.Location = new System.Drawing.Point(6, 6);
-            this.dataGridViewSuppliers.Name = "dataGridViewSuppliers";
-            this.dataGridViewSuppliers.Size = new System.Drawing.Size(838, 327);
-            this.dataGridViewSuppliers.TabIndex = 0;
-            this.dataGridViewSuppliers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSuppliers_CellDoubleClick);
-            // 
             // FList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 451);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tabControlLists);
             this.Controls.Add(this.menuStrip1);
@@ -265,13 +302,15 @@
             this.tabPageGoods.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGoods)).EndInit();
             this.tabPageSuppliers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuppliers)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sellsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.suppliersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuppliers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,7 +328,7 @@
         private cpDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.BindingSource goodsBindingSource;
         public cpDataSetTableAdapters.GoodsTableAdapter goodsTableAdapter;
         private System.Windows.Forms.BindingSource suppliersBindingSource;
@@ -300,6 +339,9 @@
         private System.Windows.Forms.DataGridView dataGridViewGoods;
         private System.Windows.Forms.TabPage tabPageSuppliers;
         private System.Windows.Forms.DataGridView dataGridViewSuppliers;
+        private System.Windows.Forms.ToolStripButton toolStripButtonExit;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
     }
 }
 

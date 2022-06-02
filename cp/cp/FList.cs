@@ -478,5 +478,45 @@ namespace cp
             else if (e.RowIndex == dataGridViewSuppliers.Rows.Count - 1) // NEW
                 NewSuppliers();
         }
+
+        private void toolStripButtonExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolStripButtonCreate_MouseEnter(object sender, EventArgs e)
+        {
+            if (tabControlLists.SelectedIndex == 0)
+                toolStripStatusLabel.Text = "Новая продажа";
+            else if (tabControlLists.SelectedIndex == 1)
+                toolStripStatusLabel.Text = "Новый товар";
+            else if (tabControlLists.SelectedIndex == 2)
+                toolStripStatusLabel.Text = "Новый поставщик";
+        }
+
+        private void CleatStatusLabel(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "";
+        }
+
+        private void toolStripButtonEdit_MouseEnter(object sender, EventArgs e)
+        {
+            if (tabControlLists.SelectedIndex == 0)
+                toolStripStatusLabel.Text = "Редактирование продажи";
+            else if (tabControlLists.SelectedIndex == 1)
+                toolStripStatusLabel.Text = "Редактирование товара";
+            else if (tabControlLists.SelectedIndex == 2)
+                toolStripStatusLabel.Text = "Редактирование поставщика";
+        }
+
+        private void toolStripButtonDelete_MouseEnter(object sender, EventArgs e)
+        {
+            if (tabControlLists.SelectedIndex == 0)
+                toolStripStatusLabel.Text = "Удаление продажи";
+            else if (tabControlLists.SelectedIndex == 1)
+                toolStripStatusLabel.Text = "Удаление товара";
+            else if (tabControlLists.SelectedIndex == 2)
+                toolStripStatusLabel.Text = "Удаление поставщика";
+        }
     }
 }
