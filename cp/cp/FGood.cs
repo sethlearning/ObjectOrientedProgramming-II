@@ -12,10 +12,12 @@ namespace cp
 {
     public partial class FGood : Form
     {
+        /*
         public FGood()
         {
             InitializeComponent();
         }
+        */
 
         public DataRow dr;
         public bool sNameChanged = false;
@@ -47,7 +49,6 @@ namespace cp
 
                 textBoxGID.Text = dr[0].ToString();
                 textBoxGName.Text = dr[1].ToString();
-                //textBoxGSupplierID.Text = dr[2].ToString();
 
                 numericUpDownGQuantity.Value = Convert.ToDecimal(dr[4]);
                 numericUpDownGBuyingPrice.Value = Convert.ToDecimal(dr[5]);

@@ -12,10 +12,12 @@ namespace cp
 {
     public partial class FSupplier : Form
     {
+        /*
         public FSupplier()
         {
             InitializeComponent();
         }
+        */
 
         public DataRow dr;
         public bool dataChanged = false;

@@ -53,21 +53,6 @@ namespace cp
             }
         }
 
-        /*
-        public FSell(DataTable dtg)
-        {
-            InitializeComponent();
-            isNewSell = true;
-            this.Text = $"Новая продажа";
-
-            comboBoxSGID.DataSource = dtg;
-            comboBoxSGID.DisplayMember = "GName";
-            comboBoxSGID.ValueMember = "GID";
-            //comboBoxSGID.SelectedValue = id;
-            textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
-        }
-        */
-
         private void buttonOK_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;

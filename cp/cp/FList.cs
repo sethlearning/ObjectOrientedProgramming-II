@@ -31,9 +31,7 @@ namespace cp
         
         private void FillDataGridViewSells()
         {
-            //this.sellsTableAdapter.FillExt(this.cpDataSet.Sells);
             this.sellsTableAdapter.FillExtSort(this.cpDataSet.Sells);
-            //dtSells = this.sellsTableAdapter.GetDataExt();
             dtSells = this.sellsTableAdapter.GetDataExtSort();
             dtSells.Columns[0].ColumnName = "ID продажи";
             dtSells.Columns[1].ColumnName = "ID товара";
@@ -47,12 +45,6 @@ namespace cp
         private void FormatDataGridViewSells(DataGridView d)
         {
             d.Columns[5].DisplayIndex = 2;
-            //d.Columns[0].Resizable = DataGridViewTriState.True;
-            //d.Columns[1].Resizable = DataGridViewTriState.True;
-            //d.Columns[2].Resizable = DataGridViewTriState.True;
-            //d.Columns[3].Resizable = DataGridViewTriState.True;
-            //d.Columns[4].Resizable = DataGridViewTriState.True;
-            //d.Columns[5].Resizable = DataGridViewTriState.True;
             d.Columns[0].MinimumWidth = 95;
             d.Columns[1].MinimumWidth = 95;
             d.Columns[2].MinimumWidth = 105;
@@ -68,9 +60,7 @@ namespace cp
 
         private void FillDataGridViewGoods()
         {
-            //this.goodsTableAdapter.FillExt(this.cpDataSet.Goods);
             this.goodsTableAdapter.FillExtSort(this.cpDataSet.Goods);
-            //dtGoods = this.goodsTableAdapter.GetDataExt();
             dtGoods = this.goodsTableAdapter.GetDataExtSort();
             dtGoods.Columns[0].ColumnName = "ID товара";
             dtGoods.Columns[1].ColumnName = "Наименование товара";
@@ -86,7 +76,6 @@ namespace cp
         {
             d.Columns[6].DisplayIndex = 3;
             d.Columns[0].MinimumWidth = 85;
-            //d.Columns[1].MinimumWidth = 200;
             d.Columns[2].MinimumWidth = 110;
             d.Columns[3].MinimumWidth = 110;
             d.Columns[4].MinimumWidth = 70;
@@ -103,9 +92,7 @@ namespace cp
 
         private void FillDataGridViewSuppliers()
         {
-            //this.suppliersTableAdapter.Fill(this.cpDataSet.Suppliers);
             this.suppliersTableAdapter.FillSort(this.cpDataSet.Suppliers);
-            //dtSuppliers = this.suppliersTableAdapter.GetData();
             dtSuppliers = this.suppliersTableAdapter.GetDataSort();
             dtSuppliers.Columns[0].ColumnName = "ID поставщика";
             dtSuppliers.Columns[1].ColumnName = "Поставщик";
@@ -170,7 +157,6 @@ namespace cp
                 tableAdapterManager.UpdateAll(cpDataSet);
 
                 FillDataGridViewSells();
-                //bs.DataSource = dt;
 
                 dataGridViewSells.CurrentCell = dataGridViewSells.Rows[dataGridViewSells.Rows.Count - 2].Cells[0];
             }
