@@ -315,6 +315,30 @@ namespace cp
         #endregion Goods
 
         #region Suppliers
+        private void NewSuppliers()
+        {
+            drSuppliers = dtSuppliers.Rows[0];
+
+            FSupplier f2 = new FSupplier(drSuppliers, true);
+            DialogResult res = f2.ShowDialog();
+
+            if (res == DialogResult.OK)
+            {
+                cpDataSet.SuppliersRow suppliersRow = cpDataSet.Suppliers.NewSuppliersRow();
+                suppliersRow.SName = (string)drSuppliers[1];
+                suppliersRow.SAddress = (string)drSuppliers[2];
+                suppliersRow.SPhoneNumber = (string)drSuppliers[3];
+                suppliersRow.SContact = (string)drSuppliers[4];
+
+                cpDataSet.Suppliers.Rows.Add(suppliersRow);
+                suppliersTableAdapter.Update(suppliersRow);
+                //tableAdapterManager.UpdateAll(cpDataSet);
+
+                FillDataGridViewSuppliers();
+                dataGridViewSuppliers.CurrentCell = dataGridViewSuppliers.Rows[dataGridViewSuppliers.Rows.Count - 2].Cells[0];
+            }
+            f2.Dispose();
+        }
         private void EditSuppliers(int i)
         {
             drSuppliers = dtSuppliers.Rows[i];
@@ -345,6 +369,8 @@ namespace cp
                 NewSells();
             else if (tabControlLists.SelectedIndex == 1)
                 NewGoods();
+            else if (tabControlLists.SelectedIndex == 2)
+                NewSuppliers();
         }
 
         // EDIT Button
@@ -371,8 +397,7 @@ namespace cp
                 if (dataGridViewSuppliers.SelectedCells[0].RowIndex < dataGridViewSuppliers.Rows.Count - 1) // EDIT Supplier
                     EditSuppliers(dataGridViewSuppliers.SelectedCells[0].RowIndex);
                 else if (dataGridViewSuppliers.SelectedCells[0].RowIndex == dataGridViewSuppliers.Rows.Count - 1)   // NEW Supplier
-                    MessageBox.Show("NEW");
-                        //NewGoods();
+                    NewSuppliers();
             }
 
         }
@@ -395,12 +420,13 @@ namespace cp
         private void tabControlLists_SelectedIndexChanged(object sender, EventArgs e)
         {
             TabControl tc = sender as TabControl;
-            //MessageBox.Show($"{t.SelectedIndex}");
+
             if (tc.SelectedIndex == 0)
                 FillDataGridViewSells();
             else if (tc.SelectedIndex == 1)
                 FillDataGridViewGoods();
-
+            else if (tc.SelectedIndex == 2)
+                FillDataGridViewSuppliers();
         }
 
         private void dataGridViewSells_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -425,7 +451,7 @@ namespace cp
             if (e.RowIndex < dataGridViewSuppliers.Rows.Count - 1) // EDIT
                 EditSuppliers(e.RowIndex);
             else if (e.RowIndex == dataGridViewSuppliers.Rows.Count - 1) // NEW
-                MessageBox.Show("NEW");
+                NewSuppliers();
         }
     }
 }
