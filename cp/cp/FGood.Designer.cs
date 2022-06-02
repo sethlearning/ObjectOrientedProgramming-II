@@ -76,7 +76,7 @@
             // 
             // textBoxGName
             // 
-            this.textBoxGName.Location = new System.Drawing.Point(164, 62);
+            this.textBoxGName.Location = new System.Drawing.Point(164, 63);
             this.textBoxGName.Name = "textBoxGName";
             this.textBoxGName.Size = new System.Drawing.Size(298, 20);
             this.textBoxGName.TabIndex = 3;
@@ -110,7 +110,7 @@
             // comboBoxSName
             // 
             this.comboBoxSName.FormattingEnabled = true;
-            this.comboBoxSName.Location = new System.Drawing.Point(164, 132);
+            this.comboBoxSName.Location = new System.Drawing.Point(164, 133);
             this.comboBoxSName.Name = "comboBoxSName";
             this.comboBoxSName.Size = new System.Drawing.Size(298, 21);
             this.comboBoxSName.TabIndex = 7;
@@ -143,7 +143,7 @@
             // 
             // numericUpDownGQuantity
             // 
-            this.numericUpDownGQuantity.Location = new System.Drawing.Point(164, 202);
+            this.numericUpDownGQuantity.Location = new System.Drawing.Point(164, 203);
             this.numericUpDownGQuantity.Maximum = new decimal(new int[] {
             1000000,
             0,

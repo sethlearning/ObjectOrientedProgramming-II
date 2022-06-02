@@ -148,7 +148,7 @@
             // 
             // dateTimePickerSells
             // 
-            this.dateTimePickerSells.Location = new System.Drawing.Point(164, 132);
+            this.dateTimePickerSells.Location = new System.Drawing.Point(164, 133);
             this.dateTimePickerSells.Name = "dateTimePickerSells";
             this.dateTimePickerSells.Size = new System.Drawing.Size(298, 20);
             this.dateTimePickerSells.TabIndex = 15;
@@ -183,7 +183,7 @@
             0,
             0,
             65536});
-            this.numericUpDownSSellingPrice.Location = new System.Drawing.Point(164, 202);
+            this.numericUpDownSSellingPrice.Location = new System.Drawing.Point(164, 203);
             this.numericUpDownSSellingPrice.Maximum = new decimal(new int[] {
             1000000,
             0,

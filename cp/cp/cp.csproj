@@ -92,6 +92,12 @@
     <Compile Include="FSell.Designer.cs">
       <DependentUpon>FSell.cs</DependentUpon>
     </Compile>
+    <Compile Include="FSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FSupplier.Designer.cs">
+      <DependentUpon>FSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FGood.resx">
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FSell.resx">
       <DependentUpon>FSell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSupplier.resx">
+      <DependentUpon>FSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
