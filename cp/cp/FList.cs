@@ -31,8 +31,10 @@ namespace cp
         
         private void FillDataGridViewSells()
         {
-            this.sellsTableAdapter.FillExt(this.cpDataSet.Sells);
-            dtSells = this.sellsTableAdapter.GetDataExt();
+            //this.sellsTableAdapter.FillExt(this.cpDataSet.Sells);
+            this.sellsTableAdapter.FillExtSort(this.cpDataSet.Sells);
+            //dtSells = this.sellsTableAdapter.GetDataExt();
+            dtSells = this.sellsTableAdapter.GetDataExtSort();
             dtSells.Columns[0].ColumnName = "ID продажи";
             dtSells.Columns[1].ColumnName = "ID товара";
             dtSells.Columns[2].ColumnName = "Дата продажи";
@@ -66,8 +68,10 @@ namespace cp
 
         private void FillDataGridViewGoods()
         {
-            this.goodsTableAdapter.FillExt(this.cpDataSet.Goods);
-            dtGoods = this.goodsTableAdapter.GetDataExt();
+            //this.goodsTableAdapter.FillExt(this.cpDataSet.Goods);
+            this.goodsTableAdapter.FillExtSort(this.cpDataSet.Goods);
+            //dtGoods = this.goodsTableAdapter.GetDataExt();
+            dtGoods = this.goodsTableAdapter.GetDataExtSort();
             dtGoods.Columns[0].ColumnName = "ID товара";
             dtGoods.Columns[1].ColumnName = "Наименование товара";
             dtGoods.Columns[2].ColumnName = "ID поставщика";
@@ -97,6 +101,20 @@ namespace cp
             d.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // SName
         }
 
+        private void FillDataGridViewSuppliers()
+        {
+            //this.suppliersTableAdapter.Fill(this.cpDataSet.Suppliers);
+            this.suppliersTableAdapter.FillSort(this.cpDataSet.Suppliers);
+            //dtSuppliers = this.suppliersTableAdapter.GetData();
+            dtSuppliers = this.suppliersTableAdapter.GetDataSort();
+            dtSuppliers.Columns[0].ColumnName = "ID поставщика";
+            dtSuppliers.Columns[1].ColumnName = "Поставщик";
+            dtSuppliers.Columns[2].ColumnName = "Адрес";
+            dtSuppliers.Columns[3].ColumnName = "Телефон";
+            dtSuppliers.Columns[4].ColumnName = "Контакт";
+            bsSuppliers.DataSource = dtSuppliers;
+        }
+
         private void FormatDataGridViewSuppliers(DataGridView d)
         {
             d.Columns[0].MinimumWidth = 110;
@@ -110,17 +128,6 @@ namespace cp
             d.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // SContact
         }
 
-        private void FillDataGridViewSuppliers()
-        {
-            this.suppliersTableAdapter.Fill(this.cpDataSet.Suppliers);
-            dtSuppliers = this.suppliersTableAdapter.GetData();
-            dtSuppliers.Columns[0].ColumnName = "ID поставщика";
-            dtSuppliers.Columns[1].ColumnName = "Поставщик";
-            dtSuppliers.Columns[2].ColumnName = "Адрес";
-            dtSuppliers.Columns[3].ColumnName = "Телефон";
-            dtSuppliers.Columns[4].ColumnName = "Контакт";
-            bsSuppliers.DataSource = dtSuppliers;
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
             this.sellsTableAdapter.Fill(this.cpDataSet.Sells);
