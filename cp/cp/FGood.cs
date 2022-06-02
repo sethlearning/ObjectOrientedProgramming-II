@@ -94,7 +94,7 @@ namespace cp
                 dataChanged = true;
             }
 
-            // GButyingPrice
+            // GBuyingPrice
             if ((decimal)dr[5] != numericUpDownGBuyingPrice.Value)
             {
                 dr[5] = numericUpDownGBuyingPrice.Value;

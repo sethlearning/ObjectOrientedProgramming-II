@@ -313,7 +313,31 @@ namespace cp
             }
         }
         #endregion Goods
-        
+
+        #region Suppliers
+        private void EditSuppliers(int i)
+        {
+            drSuppliers = dtSuppliers.Rows[i];
+
+            FSupplier f2 = new FSupplier(drSuppliers, false);
+            DialogResult res = f2.ShowDialog();
+
+            if (res == DialogResult.OK && f2.dataChanged)
+            {
+                cpDataSet.SuppliersRow suppliersRow = cpDataSet.Suppliers.FindBySupplierID((int)drSuppliers[0]);
+
+                suppliersRow.SName = (string)drSuppliers[1];
+                suppliersRow.SAddress = (string)drSuppliers[2];
+                suppliersRow.SPhoneNumber = (string)drSuppliers[3];
+                suppliersRow.SContact = (string)drSuppliers[4];
+
+                suppliersTableAdapter.Update(suppliersRow);
+                //tableAdapterManager.UpdateAll(cpDataSet);
+            }
+            f2.Dispose();
+        }
+        #endregion Suppliers
+
         // CREATE Button
         private void toolStripButtonCreate_Click(object sender, EventArgs e)
         {
@@ -333,6 +357,7 @@ namespace cp
                 else if (dataGridViewSells.SelectedCells[0].RowIndex == dataGridViewSells.Rows.Count - 1)   // NEW Sell
                     NewSells();
             }
+
             else if (tabControlLists.SelectedIndex == 1 && dataGridViewGoods.SelectedCells.Count > 0)
             {
                 if (dataGridViewGoods.SelectedCells[0].RowIndex < dataGridViewGoods.Rows.Count - 1) // EDIT Good
@@ -340,6 +365,16 @@ namespace cp
                 else if (dataGridViewGoods.SelectedCells[0].RowIndex == dataGridViewGoods.Rows.Count - 1)   // NEW Good
                     NewGoods();
             }
+
+            else if (tabControlLists.SelectedIndex == 2 && dataGridViewSuppliers.SelectedCells.Count > 0)
+            {
+                if (dataGridViewSuppliers.SelectedCells[0].RowIndex < dataGridViewSuppliers.Rows.Count - 1) // EDIT Supplier
+                    EditSuppliers(dataGridViewSuppliers.SelectedCells[0].RowIndex);
+                else if (dataGridViewSuppliers.SelectedCells[0].RowIndex == dataGridViewSuppliers.Rows.Count - 1)   // NEW Supplier
+                    MessageBox.Show("NEW");
+                        //NewGoods();
+            }
+
         }
 
         // DELETE Button
@@ -380,9 +415,17 @@ namespace cp
         {
             if (e.RowIndex < dataGridViewGoods.Rows.Count - 1) // EDIT
                 EditGoods(e.RowIndex);
-            if (e.RowIndex == dataGridViewGoods.Rows.Count - 1) // NEW
+            else if (e.RowIndex == dataGridViewGoods.Rows.Count - 1) // NEW
                 NewGoods();
 
+        }
+
+        private void dataGridViewSuppliers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < dataGridViewSuppliers.Rows.Count - 1) // EDIT
+                EditSuppliers(e.RowIndex);
+            else if (e.RowIndex == dataGridViewSuppliers.Rows.Count - 1) // NEW
+                MessageBox.Show("NEW");
         }
     }
 }

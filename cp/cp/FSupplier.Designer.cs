@@ -55,6 +55,7 @@
             // 
             this.textBoxSupplierID.Location = new System.Drawing.Point(164, 28);
             this.textBoxSupplierID.Name = "textBoxSupplierID";
+            this.textBoxSupplierID.ReadOnly = true;
             this.textBoxSupplierID.Size = new System.Drawing.Size(298, 20);
             this.textBoxSupplierID.TabIndex = 1;
             // 
@@ -130,15 +131,18 @@
             this.buttonOK.TabIndex = 10;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // buttonCancel
             // 
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Location = new System.Drawing.Point(387, 210);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 11;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // FSupplier
             // 

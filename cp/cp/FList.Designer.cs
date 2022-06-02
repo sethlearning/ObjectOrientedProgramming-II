@@ -243,6 +243,7 @@
             this.dataGridViewSuppliers.Name = "dataGridViewSuppliers";
             this.dataGridViewSuppliers.Size = new System.Drawing.Size(838, 327);
             this.dataGridViewSuppliers.TabIndex = 0;
+            this.dataGridViewSuppliers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSuppliers_CellDoubleClick);
             // 
             // FList
             // 
