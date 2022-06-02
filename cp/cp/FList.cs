@@ -169,16 +169,25 @@ namespace cp
 
         private void DeleteSells(int i)
         {
-            if (MessageBox.Show("Remove record?", "Attention", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show($"Удалить продажу №{dtSells.Rows[i][0]}?", $"Удаление продажи №{dtSells.Rows[i][0]}", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 drSells = dtSells.Rows[i];
                 cpDataSet.SellsRow sellsRow = cpDataSet.Sells.FindBySellID((int)drSells[0]);
                 sellsRow.Delete();
 
-                tableAdapterManager.UpdateAll(cpDataSet);
+                try
+                {
+                    sellsTableAdapter.Update(sellsRow);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка удаления продажи", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cpDataSet.RejectChanges();
+                    return;
+                }
 
+                //tableAdapterManager.UpdateAll(cpDataSet);
                 FillDataGridViewSells();
-                //bs.DataSource = dt;
 
                 if (i > dataGridViewSells.Rows.Count - 2)
                     dataGridViewSells.CurrentCell = dataGridViewSells.Rows[dataGridViewSells.Rows.Count - 2].Cells[0];
@@ -217,7 +226,6 @@ namespace cp
             }
             f2.Dispose();
         }
-
         private void EditGoods(int i)
         {
             drGoods = dtGoods.Rows[i];
@@ -239,13 +247,39 @@ namespace cp
                 goodsRow.GBuyingPrice = (decimal)drGoods[5];
 
                 goodsTableAdapter.Update(goodsRow);
-
                 //tableAdapterManager.UpdateAll(cpDataSet);
 
                 if (f2.sNameChanged)
                     dtGoods.Rows[i][6] = suppliersTableAdapter.GetSNameBySupplierID((int)drGoods[2]);
             }
             f2.Dispose();
+        }
+        private void DeleteGoods(int i)
+        {
+            if (MessageBox.Show($"Удалить товар \"{dtGoods.Rows[i][1]}\"?", $"Удаление товара №{dtGoods.Rows[i][0]}", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                drGoods = dtGoods.Rows[i];
+                cpDataSet.GoodsRow goodsRow = cpDataSet.Goods.FindByGID((int)drGoods[0]);
+                goodsRow.Delete();
+
+                try
+                {
+                    goodsTableAdapter.Update(goodsRow);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка удаления товара", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cpDataSet.RejectChanges();
+                    return;
+                }
+
+                FillDataGridViewGoods();
+
+                if (i > dataGridViewGoods.Rows.Count - 2)
+                    dataGridViewGoods.CurrentCell = dataGridViewGoods.Rows[dataGridViewGoods.Rows.Count - 2].Cells[0];
+                else
+                    dataGridViewGoods.CurrentCell = dataGridViewGoods.Rows[i].Cells[0];
+            }
         }
         #endregion Goods
         
@@ -277,8 +311,6 @@ namespace cp
             }
         }
 
-
-
         // DELETE Button
         private void toolStripButtonDelete_Click(object sender, EventArgs e)
         {
@@ -286,6 +318,11 @@ namespace cp
                 dataGridViewSells.SelectedCells.Count > 0 &&
                 dataGridViewSells.SelectedCells[0].RowIndex < dataGridViewSells.Rows.Count - 1)
                     DeleteSells(dataGridViewSells.SelectedCells[0].RowIndex);
+
+            else if (tabControlLists.SelectedIndex == 1 &&
+                dataGridViewGoods.SelectedCells.Count > 0 &&
+                dataGridViewGoods.SelectedCells[0].RowIndex < dataGridViewGoods.Rows.Count - 1)
+                    DeleteGoods(dataGridViewGoods.SelectedCells[0].RowIndex);
         }
 
         // Tab Changed
