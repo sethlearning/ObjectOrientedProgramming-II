@@ -360,6 +360,33 @@ namespace cp
             }
             f2.Dispose();
         }
+        private void DeleteSuppliers(int i)
+        {
+            if (MessageBox.Show($"Удалить поставщика \"{dtSuppliers.Rows[i][1]}\"?", $"Удаление поставщика №{dtSuppliers.Rows[i][0]}", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                drSuppliers = dtSuppliers.Rows[i];
+                cpDataSet.SuppliersRow suppliersRow = cpDataSet.Suppliers.FindBySupplierID((int)drSuppliers[0]);
+                suppliersRow.Delete();
+
+                try
+                {
+                    suppliersTableAdapter.Update(suppliersRow);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка удаления поставщика", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cpDataSet.RejectChanges();
+                    return;
+                }
+
+                FillDataGridViewSuppliers();
+
+                if (i > dataGridViewSuppliers.Rows.Count - 2)
+                    dataGridViewSuppliers.CurrentCell = dataGridViewSuppliers.Rows[dataGridViewSuppliers.Rows.Count - 2].Cells[0];
+                else
+                    dataGridViewSuppliers.CurrentCell = dataGridViewSuppliers.Rows[i].Cells[0];
+            }
+        }
         #endregion Suppliers
 
         // CREATE Button
@@ -414,6 +441,11 @@ namespace cp
                 dataGridViewGoods.SelectedCells.Count > 0 &&
                 dataGridViewGoods.SelectedCells[0].RowIndex < dataGridViewGoods.Rows.Count - 1)
                     DeleteGoods(dataGridViewGoods.SelectedCells[0].RowIndex);
+
+            else if (tabControlLists.SelectedIndex == 2 &&
+                dataGridViewSuppliers.SelectedCells.Count > 0 &&
+                dataGridViewSuppliers.SelectedCells[0].RowIndex < dataGridViewSuppliers.Rows.Count - 1)
+                    DeleteSuppliers(dataGridViewSuppliers.SelectedCells[0].RowIndex);
         }
 
         // Tab Changed
