@@ -61,6 +61,7 @@
             // 
             this.textBoxGID.Location = new System.Drawing.Point(164, 28);
             this.textBoxGID.Name = "textBoxGID";
+            this.textBoxGID.ReadOnly = true;
             this.textBoxGID.Size = new System.Drawing.Size(298, 20);
             this.textBoxGID.TabIndex = 1;
             // 
@@ -93,6 +94,7 @@
             // 
             this.textBoxGSupplierID.Location = new System.Drawing.Point(164, 98);
             this.textBoxGSupplierID.Name = "textBoxGSupplierID";
+            this.textBoxGSupplierID.ReadOnly = true;
             this.textBoxGSupplierID.Size = new System.Drawing.Size(298, 20);
             this.textBoxGSupplierID.TabIndex = 5;
             // 
@@ -112,6 +114,7 @@
             this.comboBoxSName.Name = "comboBoxSName";
             this.comboBoxSName.Size = new System.Drawing.Size(298, 21);
             this.comboBoxSName.TabIndex = 7;
+            this.comboBoxSName.SelectedIndexChanged += new System.EventHandler(this.comboBoxSName_SelectedIndexChanged);
             // 
             // labelGSupplyDate
             // 
@@ -141,13 +144,39 @@
             // numericUpDownGQuantity
             // 
             this.numericUpDownGQuantity.Location = new System.Drawing.Point(164, 202);
+            this.numericUpDownGQuantity.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericUpDownGQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownGQuantity.Name = "numericUpDownGQuantity";
             this.numericUpDownGQuantity.Size = new System.Drawing.Size(298, 20);
             this.numericUpDownGQuantity.TabIndex = 11;
+            this.numericUpDownGQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numericUpDownGBuyingPrice
             // 
+            this.numericUpDownGBuyingPrice.DecimalPlaces = 2;
+            this.numericUpDownGBuyingPrice.Increment = new decimal(new int[] {
+            2,
+            0,
+            0,
+            65536});
             this.numericUpDownGBuyingPrice.Location = new System.Drawing.Point(164, 238);
+            this.numericUpDownGBuyingPrice.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.numericUpDownGBuyingPrice.Name = "numericUpDownGBuyingPrice";
             this.numericUpDownGBuyingPrice.Size = new System.Drawing.Size(298, 20);
             this.numericUpDownGBuyingPrice.TabIndex = 12;
@@ -169,20 +198,25 @@
             this.buttonOK.TabIndex = 14;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // buttonCancel
             // 
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Location = new System.Drawing.Point(387, 280);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 15;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // FGood
             // 
+            this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(489, 321);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);

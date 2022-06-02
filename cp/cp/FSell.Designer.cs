@@ -76,6 +76,7 @@
             // 
             this.textBoxSGID.Location = new System.Drawing.Point(164, 63);
             this.textBoxSGID.Name = "textBoxSGID";
+            this.textBoxSGID.ReadOnly = true;
             this.textBoxSGID.Size = new System.Drawing.Size(298, 20);
             this.textBoxSGID.TabIndex = 3;
             // 
@@ -160,9 +161,19 @@
             0,
             0,
             0});
+            this.numericUpDownSQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDownSQuantity.Name = "numericUpDownSQuantity";
             this.numericUpDownSQuantity.Size = new System.Drawing.Size(298, 20);
             this.numericUpDownSQuantity.TabIndex = 16;
+            this.numericUpDownSQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numericUpDownSSellingPrice
             // 

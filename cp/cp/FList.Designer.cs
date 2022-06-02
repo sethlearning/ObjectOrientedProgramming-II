@@ -35,6 +35,7 @@
             this.dataGridViewSells = new System.Windows.Forms.DataGridView();
             this.tabPageGoods = new System.Windows.Forms.TabPage();
             this.dataGridViewGoods = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonCreate = new System.Windows.Forms.ToolStripButton();
@@ -49,7 +50,6 @@
             this.goodsTableAdapter = new cp.cpDataSetTableAdapters.GoodsTableAdapter();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersTableAdapter = new cp.cpDataSetTableAdapters.SuppliersTableAdapter();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControlLists.SuspendLayout();
             this.tabPageSells.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSells)).BeginInit();
@@ -83,7 +83,7 @@
             this.tabPageSells.Location = new System.Drawing.Point(4, 22);
             this.tabPageSells.Name = "tabPageSells";
             this.tabPageSells.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSells.Size = new System.Drawing.Size(776, 338);
+            this.tabPageSells.Size = new System.Drawing.Size(850, 339);
             this.tabPageSells.TabIndex = 0;
             this.tabPageSells.Text = "Продажи";
             this.tabPageSells.UseVisualStyleBackColor = true;
@@ -97,9 +97,9 @@
             this.dataGridViewSells.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSells.Location = new System.Drawing.Point(6, 6);
             this.dataGridViewSells.Name = "dataGridViewSells";
-            this.dataGridViewSells.Size = new System.Drawing.Size(764, 326);
+            this.dataGridViewSells.Size = new System.Drawing.Size(838, 327);
             this.dataGridViewSells.TabIndex = 0;
-            this.dataGridViewSells.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridViewSells.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSells_CellDoubleClick);
             // 
             // tabPageGoods
             // 
@@ -122,6 +122,17 @@
             this.dataGridViewGoods.Name = "dataGridViewGoods";
             this.dataGridViewGoods.Size = new System.Drawing.Size(838, 327);
             this.dataGridViewGoods.TabIndex = 0;
+            this.dataGridViewGoods.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGoods_CellDoubleClick);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(850, 339);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -218,16 +229,6 @@
             // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(776, 338);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // FList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,7 +239,7 @@
             this.Controls.Add(this.tabControlLists);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(890, 0);
+            this.MinimumSize = new System.Drawing.Size(890, 39);
             this.Name = "FList";
             this.Text = "Computer equipment";
             this.Load += new System.EventHandler(this.Form1_Load);

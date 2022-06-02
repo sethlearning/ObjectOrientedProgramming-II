@@ -53,12 +53,12 @@ namespace cp
             d.Columns[2].MinimumWidth = 105;
             d.Columns[3].MinimumWidth = 80;
             d.Columns[4].MinimumWidth = 80;
-            d.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            d.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            d.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            d.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            d.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            d.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            d.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // SellID
+            d.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // SGID
+            d.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // SDate
+            d.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // SQuantity
+            d.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // SSellingrice
+            d.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;        // GName
         }
 
         private void FillDataGridViewGoods()
@@ -81,17 +81,17 @@ namespace cp
             d.Columns[0].MinimumWidth = 85;
             //d.Columns[1].MinimumWidth = 200;
             d.Columns[2].MinimumWidth = 110;
-            d.Columns[3].MinimumWidth = 110;    // SSupplyDate
-            d.Columns[4].MinimumWidth = 70;    // SQuantity
-            d.Columns[5].MinimumWidth = 105;    // GBuyingPrice
-            d.Columns[6].MinimumWidth = 100;    // SName
-            d.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            d.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            d.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            d.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            d.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            d.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            d.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            d.Columns[3].MinimumWidth = 110;
+            d.Columns[4].MinimumWidth = 70;
+            d.Columns[5].MinimumWidth = 105;
+            d.Columns[6].MinimumWidth = 100;
+            d.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // GID
+            d.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;        // GName
+            d.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // GSupplierID
+            d.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // GSupplyDate
+            d.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // GQuantity
+            d.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // GBuyingPrice
+            d.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;    // SName
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -109,6 +109,7 @@ namespace cp
             // dtSells = this.sellsTableAdapter.GetData();
         }
 
+        #region Sells
         private void NewSells()
         {
             drSells = dtSells.Rows[0];
@@ -158,7 +159,8 @@ namespace cp
                 sellsRow.SQuantity = (int)drSells[3];
                 sellsRow.SSellingPrice = (decimal)drSells[4];
 
-                tableAdapterManager.UpdateAll(cpDataSet);
+                sellsTableAdapter.Update(sellsRow);
+                //tableAdapterManager.UpdateAll(cpDataSet);
 
                 if (f2.gNameChanged)
                     dtSells.Rows[i][5] = goodsTableAdapter.GetGNameByGID((int)drSells[1]);
@@ -185,8 +187,40 @@ namespace cp
                     dataGridViewSells.CurrentCell = dataGridViewSells.Rows[i].Cells[0];
             }
         }
+        #endregion Sells
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        #region Goods
+        private void EditGoods(int i)
+        {
+            drGoods = dtGoods.Rows[i];
+            DataTable dts = new DataTable();
+            suppliersTableAdapter.Fill(this.cpDataSet.Suppliers);
+            dts = suppliersTableAdapter.GetData();
+
+            FGood f2 = new FGood(drGoods, dts, false);
+            DialogResult res = f2.ShowDialog();
+
+            if (res == DialogResult.OK && f2.dataChanged)
+            {
+                cpDataSet.GoodsRow goodsRow = cpDataSet.Goods.FindByGID((int)drGoods[0]);
+
+                goodsRow.GName = (string)drGoods[1];
+                goodsRow.GSupplierID = (int)drGoods[2];
+                goodsRow.GSupplyDate = (DateTime)drGoods[3];
+                goodsRow.GQuantity = (int)drGoods[4];
+                goodsRow.GBuyingPrice = (decimal)drGoods[5];
+
+                goodsTableAdapter.Update(goodsRow);
+
+                //tableAdapterManager.UpdateAll(cpDataSet);
+
+                if (f2.sNameChanged)
+                    dtGoods.Rows[i][6] = suppliersTableAdapter.GetSNameBySupplierID((int)drGoods[2]);
+            }
+            f2.Dispose();
+        }
+        #endregion Goods
+        private void dataGridViewSells_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < dataGridViewSells.Rows.Count - 1)  // EDIT
                 EditSells(e.RowIndex);
@@ -194,9 +228,10 @@ namespace cp
                 NewSells();
         }
 
+        // EDIT Button
         private void toolStripButtonEdit_Click(object sender, EventArgs e)
         {
-            if (tabControlLists.TabIndex == 0 && dataGridViewSells.SelectedCells.Count > 0)
+            if (tabControlLists.SelectedIndex == 0 && dataGridViewSells.SelectedCells.Count > 0)
             {
                 if (dataGridViewSells.SelectedCells[0].RowIndex < dataGridViewSells.Rows.Count - 1) // EDIT
                     EditSells(dataGridViewSells.SelectedCells[0].RowIndex);
@@ -205,20 +240,23 @@ namespace cp
             }
         }
 
+        // CREATE Button
         private void toolStripButtonCreate_Click(object sender, EventArgs e)
         {
-            if (tabControlLists.TabIndex == 0)
+            if (tabControlLists.SelectedIndex == 0)
                 NewSells();
         }
 
+        // DELETE Button
         private void toolStripButtonDelete_Click(object sender, EventArgs e)
         {
-            if (tabControlLists.TabIndex == 0 &&
+            if (tabControlLists.SelectedIndex == 0 &&
                 dataGridViewSells.SelectedCells.Count > 0 &&
                 dataGridViewSells.SelectedCells[0].RowIndex < dataGridViewSells.Rows.Count - 1)
                     DeleteSells(dataGridViewSells.SelectedCells[0].RowIndex);
         }
 
+        // Tab Changed
         private void tabControlLists_SelectedIndexChanged(object sender, EventArgs e)
         {
             TabControl tc = sender as TabControl;
@@ -227,6 +265,15 @@ namespace cp
                 FillDataGridViewSells();
             else if (tc.SelectedIndex == 1)
                 FillDataGridViewGoods();
+
+        }
+
+        private void dataGridViewGoods_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < dataGridViewGoods.Rows.Count - 1) // EDIT
+                EditGoods(e.RowIndex);
+            if (e.RowIndex == dataGridViewGoods.Rows.Count - 1) // NEW
+                MessageBox.Show("NEW");
 
         }
     }

@@ -72,29 +72,33 @@ namespace cp
         {
             this.DialogResult = DialogResult.OK;
 
+            // SGID
+            if (dr[1].ToString() != textBoxSGID.Text)
+            {
+                dr[1] = Convert.ToInt32(textBoxSGID.Text);
+                dataChanged = true;
+                gNameChanged = true;
+            }
+
+            // SDate
             if ((DateTime)dr[2] != dateTimePickerSells.Value)
             {
                 dr[2] = dateTimePickerSells.Value.Date;
                 dataChanged = true;
             }
 
+            // SQuantity
             if ((int)dr[3] != (int)numericUpDownSQuantity.Value)
             {
                 dr[3] = Convert.ToInt32(numericUpDownSQuantity.Value);
                 dataChanged = true;
             }
 
+            // SSellingPrice
             if ((decimal)dr[4] != numericUpDownSSellingPrice.Value)
             {
                 dr[4] = numericUpDownSSellingPrice.Value;
                 dataChanged = true;
-            }
-
-            if (dr[1].ToString() != textBoxSGID.Text)
-            {
-                dr[1] = Convert.ToInt32(textBoxSGID.Text);
-                dataChanged = true;
-                gNameChanged = true;
             }
 
             this.Close();
