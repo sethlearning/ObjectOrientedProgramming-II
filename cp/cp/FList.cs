@@ -125,7 +125,6 @@ namespace cp
                 cpDataSet.SellsRow sellsRow = cpDataSet.Sells.NewSellsRow();
                 sellsRow.SGID = (int)drSells[1];
                 sellsRow.SDate = (DateTime)drSells[2];
-
                 sellsRow.SQuantity = (int)drSells[3];
                 sellsRow.SSellingPrice = (decimal)drSells[4];
 
@@ -190,6 +189,35 @@ namespace cp
         #endregion Sells
 
         #region Goods
+        private void NewGoods()
+        {
+            drGoods = dtGoods.Rows[0];
+            DataTable dts = new DataTable();
+            suppliersTableAdapter.Fill(this.cpDataSet.Suppliers);
+            dts = suppliersTableAdapter.GetData();
+
+            FGood f2 = new FGood(drGoods, dts, true);
+            DialogResult res = f2.ShowDialog();
+
+            if (res == DialogResult.OK)
+            {
+                cpDataSet.GoodsRow goodsRow = cpDataSet.Goods.NewGoodsRow();
+                goodsRow.GName = (string)drGoods[1];
+                goodsRow.GSupplierID = (int)drGoods[2];
+                goodsRow.GSupplyDate = (DateTime)drGoods[3];
+                goodsRow.GQuantity = (int)drGoods[4];
+                goodsRow.GBuyingPrice = (decimal)drGoods[5];
+
+                cpDataSet.Goods.Rows.Add(goodsRow);
+                goodsTableAdapter.Update(cpDataSet);
+                //tableAdapterManager.UpdateAll(cpDataSet);
+
+                FillDataGridViewGoods();
+                dataGridViewGoods.CurrentCell = dataGridViewGoods.Rows[dataGridViewGoods.Rows.Count - 2].Cells[0];
+            }
+            f2.Dispose();
+        }
+
         private void EditGoods(int i)
         {
             drGoods = dtGoods.Rows[i];
@@ -220,12 +248,14 @@ namespace cp
             f2.Dispose();
         }
         #endregion Goods
-        private void dataGridViewSells_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        
+        // CREATE Button
+        private void toolStripButtonCreate_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex < dataGridViewSells.Rows.Count - 1)  // EDIT
-                EditSells(e.RowIndex);
-            else if (e.RowIndex == dataGridViewSells.Rows.Count - 1)    // NEW
+            if (tabControlLists.SelectedIndex == 0)
                 NewSells();
+            else if (tabControlLists.SelectedIndex == 1)
+                NewGoods();
         }
 
         // EDIT Button
@@ -233,19 +263,21 @@ namespace cp
         {
             if (tabControlLists.SelectedIndex == 0 && dataGridViewSells.SelectedCells.Count > 0)
             {
-                if (dataGridViewSells.SelectedCells[0].RowIndex < dataGridViewSells.Rows.Count - 1) // EDIT
+                if (dataGridViewSells.SelectedCells[0].RowIndex < dataGridViewSells.Rows.Count - 1) // EDIT Sell
                     EditSells(dataGridViewSells.SelectedCells[0].RowIndex);
-                else if (dataGridViewSells.SelectedCells[0].RowIndex == dataGridViewSells.Rows.Count - 1)   // NEW
+                else if (dataGridViewSells.SelectedCells[0].RowIndex == dataGridViewSells.Rows.Count - 1)   // NEW Sell
                     NewSells();
+            }
+            else if (tabControlLists.SelectedIndex == 1 && dataGridViewGoods.SelectedCells.Count > 0)
+            {
+                if (dataGridViewGoods.SelectedCells[0].RowIndex < dataGridViewGoods.Rows.Count - 1) // EDIT Good
+                    EditGoods(dataGridViewGoods.SelectedCells[0].RowIndex);
+                else if (dataGridViewGoods.SelectedCells[0].RowIndex == dataGridViewGoods.Rows.Count - 1)   // NEW Good
+                    NewGoods();
             }
         }
 
-        // CREATE Button
-        private void toolStripButtonCreate_Click(object sender, EventArgs e)
-        {
-            if (tabControlLists.SelectedIndex == 0)
-                NewSells();
-        }
+
 
         // DELETE Button
         private void toolStripButtonDelete_Click(object sender, EventArgs e)
@@ -268,12 +300,20 @@ namespace cp
 
         }
 
+        private void dataGridViewSells_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < dataGridViewSells.Rows.Count - 1)  // EDIT
+                EditSells(e.RowIndex);
+            else if (e.RowIndex == dataGridViewSells.Rows.Count - 1)    // NEW
+                NewSells();
+        }
+
         private void dataGridViewGoods_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < dataGridViewGoods.Rows.Count - 1) // EDIT
                 EditGoods(e.RowIndex);
             if (e.RowIndex == dataGridViewGoods.Rows.Count - 1) // NEW
-                MessageBox.Show("NEW");
+                NewGoods();
 
         }
     }
