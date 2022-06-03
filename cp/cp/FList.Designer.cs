@@ -65,6 +65,7 @@
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ToolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.sellsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cpDataSet = new cp.cpDataSet();
             this.sellsTableAdapter = new cp.cpDataSetTableAdapters.SellsTableAdapter();
@@ -73,7 +74,6 @@
             this.goodsTableAdapter = new cp.cpDataSetTableAdapters.GoodsTableAdapter();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersTableAdapter = new cp.cpDataSetTableAdapters.SuppliersTableAdapter();
-            this.ToolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlLists.SuspendLayout();
             this.tabPageSells.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSells)).BeginInit();
@@ -250,7 +250,7 @@
             // ToolStripMenuItemSellsNew
             // 
             this.ToolStripMenuItemSellsNew.Name = "ToolStripMenuItemSellsNew";
-            this.ToolStripMenuItemSellsNew.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemSellsNew.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemSellsNew.Text = "Создать";
             this.ToolStripMenuItemSellsNew.Click += new System.EventHandler(this.NewSellMenuCommand);
             this.ToolStripMenuItemSellsNew.MouseEnter += new System.EventHandler(this.ToolStripMenuItemSellsNew_MouseEnter);
@@ -259,7 +259,7 @@
             // ToolStripMenuItemSellsEdit
             // 
             this.ToolStripMenuItemSellsEdit.Name = "ToolStripMenuItemSellsEdit";
-            this.ToolStripMenuItemSellsEdit.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemSellsEdit.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemSellsEdit.Text = "Редактировать";
             this.ToolStripMenuItemSellsEdit.Click += new System.EventHandler(this.EditItemCommand);
             this.ToolStripMenuItemSellsEdit.MouseEnter += new System.EventHandler(this.ToolStripMenuItemSellsEdit_MouseEnter);
@@ -268,7 +268,7 @@
             // ToolStripMenuItemSellsDelete
             // 
             this.ToolStripMenuItemSellsDelete.Name = "ToolStripMenuItemSellsDelete";
-            this.ToolStripMenuItemSellsDelete.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemSellsDelete.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemSellsDelete.Text = "Удалить";
             this.ToolStripMenuItemSellsDelete.Click += new System.EventHandler(this.DeleteItemCommand);
             this.ToolStripMenuItemSellsDelete.MouseEnter += new System.EventHandler(this.ToolStripMenuItemSellsDelete_MouseEnter);
@@ -277,7 +277,7 @@
             // ToolStripMenuItemSellsGoOver
             // 
             this.ToolStripMenuItemSellsGoOver.Name = "ToolStripMenuItemSellsGoOver";
-            this.ToolStripMenuItemSellsGoOver.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemSellsGoOver.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemSellsGoOver.Text = "Перейти";
             this.ToolStripMenuItemSellsGoOver.Visible = false;
             this.ToolStripMenuItemSellsGoOver.Click += new System.EventHandler(this.ToolStripMenuItemSellsGoOver_Click);
@@ -300,7 +300,7 @@
             // ToolStripMenuItemGoodsNew
             // 
             this.ToolStripMenuItemGoodsNew.Name = "ToolStripMenuItemGoodsNew";
-            this.ToolStripMenuItemGoodsNew.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemGoodsNew.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemGoodsNew.Text = "Создать";
             this.ToolStripMenuItemGoodsNew.Click += new System.EventHandler(this.NewGoodMenuCommand);
             this.ToolStripMenuItemGoodsNew.MouseEnter += new System.EventHandler(this.ToolStripMenuItemGoodsNew_MouseEnter);
@@ -309,7 +309,7 @@
             // ToolStripMenuItemGoodsEdit
             // 
             this.ToolStripMenuItemGoodsEdit.Name = "ToolStripMenuItemGoodsEdit";
-            this.ToolStripMenuItemGoodsEdit.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemGoodsEdit.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemGoodsEdit.Text = "Редактировать";
             this.ToolStripMenuItemGoodsEdit.Visible = false;
             this.ToolStripMenuItemGoodsEdit.Click += new System.EventHandler(this.EditItemCommand);
@@ -319,7 +319,7 @@
             // ToolStripMenuItemGoodsDelete
             // 
             this.ToolStripMenuItemGoodsDelete.Name = "ToolStripMenuItemGoodsDelete";
-            this.ToolStripMenuItemGoodsDelete.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemGoodsDelete.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemGoodsDelete.Text = "Удалить";
             this.ToolStripMenuItemGoodsDelete.Visible = false;
             this.ToolStripMenuItemGoodsDelete.Click += new System.EventHandler(this.DeleteItemCommand);
@@ -329,7 +329,7 @@
             // ToolStripMenuItemGoodsGoOver
             // 
             this.ToolStripMenuItemGoodsGoOver.Name = "ToolStripMenuItemGoodsGoOver";
-            this.ToolStripMenuItemGoodsGoOver.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemGoodsGoOver.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemGoodsGoOver.Text = "Перейти";
             this.ToolStripMenuItemGoodsGoOver.Click += new System.EventHandler(this.ToolStripMenuItemGoodsGoOver_Click);
             this.ToolStripMenuItemGoodsGoOver.MouseEnter += new System.EventHandler(this.ToolStripMenuItemGoodsGoOver_MouseEnter);
@@ -351,7 +351,7 @@
             // ToolStripMenuItemSuppliersNew
             // 
             this.ToolStripMenuItemSuppliersNew.Name = "ToolStripMenuItemSuppliersNew";
-            this.ToolStripMenuItemSuppliersNew.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemSuppliersNew.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemSuppliersNew.Text = "Создать";
             this.ToolStripMenuItemSuppliersNew.Click += new System.EventHandler(this.NewSupplierMenuCommand);
             this.ToolStripMenuItemSuppliersNew.MouseEnter += new System.EventHandler(this.ToolStripMenuItemSuppliersNew_MouseEnter);
@@ -360,7 +360,7 @@
             // ToolStripMenuItemSuppliersEdit
             // 
             this.ToolStripMenuItemSuppliersEdit.Name = "ToolStripMenuItemSuppliersEdit";
-            this.ToolStripMenuItemSuppliersEdit.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemSuppliersEdit.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemSuppliersEdit.Text = "Редактировать";
             this.ToolStripMenuItemSuppliersEdit.Visible = false;
             this.ToolStripMenuItemSuppliersEdit.Click += new System.EventHandler(this.EditItemCommand);
@@ -370,7 +370,7 @@
             // ToolStripMenuItemSuppliersDelete
             // 
             this.ToolStripMenuItemSuppliersDelete.Name = "ToolStripMenuItemSuppliersDelete";
-            this.ToolStripMenuItemSuppliersDelete.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemSuppliersDelete.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemSuppliersDelete.Text = "Удалить";
             this.ToolStripMenuItemSuppliersDelete.Visible = false;
             this.ToolStripMenuItemSuppliersDelete.Click += new System.EventHandler(this.DeleteItemCommand);
@@ -380,7 +380,7 @@
             // ToolStripMenuItemSuppliersGoOver
             // 
             this.ToolStripMenuItemSuppliersGoOver.Name = "ToolStripMenuItemSuppliersGoOver";
-            this.ToolStripMenuItemSuppliersGoOver.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItemSuppliersGoOver.Size = new System.Drawing.Size(154, 22);
             this.ToolStripMenuItemSuppliersGoOver.Text = "Перейти";
             this.ToolStripMenuItemSuppliersGoOver.Click += new System.EventHandler(this.ToolStripMenuItemSuppliersGoOver_Click);
             this.ToolStripMenuItemSuppliersGoOver.MouseEnter += new System.EventHandler(this.ToolStripMenuItemSuppliersGoOver_MouseEnter);
@@ -406,11 +406,10 @@
             // 
             // toolStripButtonCreate
             // 
-            this.toolStripButtonCreate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButtonCreate.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCreate.Image")));
             this.toolStripButtonCreate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCreate.Name = "toolStripButtonCreate";
-            this.toolStripButtonCreate.Size = new System.Drawing.Size(54, 22);
+            this.toolStripButtonCreate.Size = new System.Drawing.Size(70, 22);
             this.toolStripButtonCreate.Text = "Создать";
             this.toolStripButtonCreate.Click += new System.EventHandler(this.NewItemCommand);
             this.toolStripButtonCreate.MouseEnter += new System.EventHandler(this.toolStripButtonCreate_MouseEnter);
@@ -423,11 +422,10 @@
             // 
             // toolStripButtonEdit
             // 
-            this.toolStripButtonEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEdit.Image")));
             this.toolStripButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEdit.Name = "toolStripButtonEdit";
-            this.toolStripButtonEdit.Size = new System.Drawing.Size(91, 22);
+            this.toolStripButtonEdit.Size = new System.Drawing.Size(107, 22);
             this.toolStripButtonEdit.Text = "Редактировать";
             this.toolStripButtonEdit.Click += new System.EventHandler(this.EditItemCommand);
             this.toolStripButtonEdit.MouseEnter += new System.EventHandler(this.toolStripButtonEdit_MouseEnter);
@@ -440,11 +438,10 @@
             // 
             // toolStripButtonDelete
             // 
-            this.toolStripButtonDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButtonDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelete.Image")));
             this.toolStripButtonDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDelete.Name = "toolStripButtonDelete";
-            this.toolStripButtonDelete.Size = new System.Drawing.Size(55, 22);
+            this.toolStripButtonDelete.Size = new System.Drawing.Size(71, 22);
             this.toolStripButtonDelete.Text = "Удалить";
             this.toolStripButtonDelete.Click += new System.EventHandler(this.DeleteItemCommand);
             this.toolStripButtonDelete.MouseEnter += new System.EventHandler(this.toolStripButtonDelete_MouseEnter);
@@ -464,6 +461,15 @@
             // 
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(0, 17);
+            // 
+            // ToolStripMenuItemExit
+            // 
+            this.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit";
+            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(54, 20);
+            this.ToolStripMenuItemExit.Text = "Выход";
+            this.ToolStripMenuItemExit.Click += new System.EventHandler(this.toolStripButtonExit_Click);
+            this.ToolStripMenuItemExit.MouseEnter += new System.EventHandler(this.toolStripButtonExit_MouseEnter);
+            this.ToolStripMenuItemExit.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
             // 
             // sellsBindingSource
             // 
@@ -504,15 +510,6 @@
             // suppliersTableAdapter
             // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
-            // 
-            // ToolStripMenuItemExit
-            // 
-            this.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit";
-            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(54, 20);
-            this.ToolStripMenuItemExit.Text = "Выход";
-            this.ToolStripMenuItemExit.Click += new System.EventHandler(this.toolStripButtonExit_Click);
-            this.ToolStripMenuItemExit.MouseEnter += new System.EventHandler(this.toolStripButtonExit_MouseEnter);
-            this.ToolStripMenuItemExit.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
             // 
             // FList
             // 
