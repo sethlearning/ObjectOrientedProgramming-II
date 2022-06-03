@@ -13,15 +13,18 @@ namespace cp
     public partial class FSell : Form
     {
         public DataRow dr;
+        public DataTable dt;
         public bool gNameChanged = false;
         public bool dataChanged = false;
         private bool isNewSell;
+        private bool isFirstEvent = true;
 
         public FSell(DataRow idr, DataTable dtg, Boolean isNewSell)
         {
             InitializeComponent();
 
             this.isNewSell = isNewSell;
+            dt = dtg;
             dr = idr;
 
             if (isNewSell)
@@ -33,6 +36,7 @@ namespace cp
                 comboBoxSGID.DisplayMember = "GName";
                 comboBoxSGID.ValueMember = "GID";
                 textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
+                numericUpDownSSellingPrice.Value = Convert.ToDecimal(dt.Select($"GID = {comboBoxSGID.SelectedValue}")[0][5]);
             }
 
             else
@@ -95,7 +99,15 @@ namespace cp
             this.Close();
         }
 
-        private void comboBoxSGID_SelectedIndexChanged(object sender, EventArgs e) => 
-            textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
+        private void comboBoxSGID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!isFirstEvent)
+            {
+                textBoxSGID.Text = comboBoxSGID.SelectedValue.ToString();
+                if (isNewSell)
+                    numericUpDownSSellingPrice.Value = Convert.ToDecimal(dt.Select($"GID = {comboBoxSGID.SelectedValue}")[0][5]);
+            }
+            isFirstEvent = false;
+        }
     }
 }
