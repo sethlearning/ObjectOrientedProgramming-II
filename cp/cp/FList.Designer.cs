@@ -63,9 +63,6 @@
             this.toolStripButtonEdit = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonDelete = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonExit = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.sellsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -76,6 +73,7 @@
             this.goodsTableAdapter = new cp.cpDataSetTableAdapters.GoodsTableAdapter();
             this.suppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.suppliersTableAdapter = new cp.cpDataSetTableAdapters.SuppliersTableAdapter();
+            this.ToolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlLists.SuspendLayout();
             this.tabPageSells.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSells)).BeginInit();
@@ -216,7 +214,8 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemSells,
             this.ToolStripMenuItemGoods,
-            this.ToolStripMenuItemSuppliers});
+            this.ToolStripMenuItemSuppliers,
+            this.ToolStripMenuItemExit});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(874, 24);
@@ -383,10 +382,7 @@
             this.toolStripSeparator1,
             this.toolStripButtonEdit,
             this.toolStripSeparator2,
-            this.toolStripButtonDelete,
-            this.toolStripButtonExit,
-            this.toolStripSeparator3,
-            this.toolStripSeparator4});
+            this.toolStripButtonDelete});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -439,30 +435,6 @@
             this.toolStripButtonDelete.Click += new System.EventHandler(this.DeleteItemCommand);
             this.toolStripButtonDelete.MouseEnter += new System.EventHandler(this.toolStripButtonDelete_MouseEnter);
             this.toolStripButtonDelete.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
-            // 
-            // toolStripButtonExit
-            // 
-            this.toolStripButtonExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonExit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonExit.Image")));
-            this.toolStripButtonExit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonExit.Name = "toolStripButtonExit";
-            this.toolStripButtonExit.Size = new System.Drawing.Size(46, 22);
-            this.toolStripButtonExit.Text = "Выход";
-            this.toolStripButtonExit.Click += new System.EventHandler(this.toolStripButtonExit_Click);
-            this.toolStripButtonExit.MouseEnter += new System.EventHandler(this.toolStripButtonExit_MouseEnter);
-            this.toolStripButtonExit.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
             // statusStrip
             // 
@@ -518,6 +490,15 @@
             // suppliersTableAdapter
             // 
             this.suppliersTableAdapter.ClearBeforeFill = true;
+            // 
+            // ToolStripMenuItemExit
+            // 
+            this.ToolStripMenuItemExit.Name = "ToolStripMenuItemExit";
+            this.ToolStripMenuItemExit.Size = new System.Drawing.Size(54, 20);
+            this.ToolStripMenuItemExit.Text = "Выход";
+            this.ToolStripMenuItemExit.Click += new System.EventHandler(this.toolStripButtonExit_Click);
+            this.ToolStripMenuItemExit.MouseEnter += new System.EventHandler(this.toolStripButtonExit_MouseEnter);
+            this.ToolStripMenuItemExit.MouseLeave += new System.EventHandler(this.ClearStatusLabel);
             // 
             // FList
             // 
@@ -579,12 +560,9 @@
         private System.Windows.Forms.DataGridView dataGridViewGoods;
         private System.Windows.Forms.TabPage tabPageSuppliers;
         private System.Windows.Forms.DataGridView dataGridViewSuppliers;
-        private System.Windows.Forms.ToolStripButton toolStripButtonExit;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSells;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSellsNew;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSellsEdit;
@@ -604,6 +582,7 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSuppliersDelete;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSuppliersGoOver;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSellsGoOver;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemExit;
     }
 }
 

@@ -529,7 +529,8 @@ namespace cp
 
         private void toolStripButtonExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Выйти из программы?", "Выход", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                Application.Exit();
         }
 
         private void ToolStripMenuItemSellsGoOver_Click(object sender, EventArgs e)
