@@ -383,7 +383,7 @@ namespace cp
         #endregion Suppliers
 
         // CREATE Button
-        private void NewItem(object sender, EventArgs e)
+        private void NewItemCommand(object sender, EventArgs e)
         {
             if (tabControlLists.SelectedIndex == 0)
                 NewSells();
@@ -394,7 +394,7 @@ namespace cp
         }
 
         // EDIT Button
-        private void EditItem(object sender, EventArgs e)
+        private void EditItemCommand(object sender, EventArgs e)
         {
             if (tabControlLists.SelectedIndex == 0 && dataGridViewSells.SelectedCells.Count > 0)
             {
@@ -423,7 +423,7 @@ namespace cp
         }
 
         // DELETE Button
-        private void DeleteItem(object sender, EventArgs e)
+        private void DeleteItemCommand(object sender, EventArgs e)
         {
             if (tabControlLists.SelectedIndex == 0 &&
                 dataGridViewSells.SelectedCells.Count > 0 &&
@@ -442,7 +442,7 @@ namespace cp
         }
 
         // Tab Changed
-        private void tabControlLists_SelectedIndexChanged(object sender, EventArgs e)
+        private void TabChange(object sender, EventArgs e)
         {
             TabControl tc = sender as TabControl;
 
@@ -452,6 +452,54 @@ namespace cp
                 FillDataGridViewGoods();
             else if (tc.SelectedIndex == 2)
                 FillDataGridViewSuppliers();
+
+            ChangeMenu(tc.SelectedIndex);
+        }
+
+        private void ChangeMenu(int i)
+        {
+            switch (i)
+            {
+                case 0:
+                    ToolStripMenuItemSellsGoOver.Visible = false;
+                    ToolStripMenuItemSellsEdit.Visible = true;
+                    ToolStripMenuItemSellsDelete.Visible = true;
+
+                    ToolStripMenuItemGoodsGoOver.Visible = true;
+                    ToolStripMenuItemGoodsEdit.Visible = false;
+                    ToolStripMenuItemGoodsDelete.Visible = false;
+
+                    ToolStripMenuItemSuppliersGoOver.Visible = true;
+                    ToolStripMenuItemSuppliersEdit.Visible = false;
+                    ToolStripMenuItemSuppliersDelete.Visible = false;
+                    break;
+                case 1:
+                    ToolStripMenuItemSellsGoOver.Visible = true;
+                    ToolStripMenuItemSellsEdit.Visible = false;
+                    ToolStripMenuItemSellsDelete.Visible = false;
+
+                    ToolStripMenuItemGoodsGoOver.Visible = false;
+                    ToolStripMenuItemGoodsEdit.Visible = true;
+                    ToolStripMenuItemGoodsDelete.Visible = true;
+
+                    ToolStripMenuItemSuppliersGoOver.Visible = true;
+                    ToolStripMenuItemSuppliersEdit.Visible = false;
+                    ToolStripMenuItemSuppliersDelete.Visible = false;
+                    break;
+                case 2:
+                    ToolStripMenuItemSellsGoOver.Visible = true;
+                    ToolStripMenuItemSellsEdit.Visible = false;
+                    ToolStripMenuItemSellsDelete.Visible = false;
+
+                    ToolStripMenuItemGoodsGoOver.Visible = true;
+                    ToolStripMenuItemGoodsEdit.Visible = false;
+                    ToolStripMenuItemGoodsDelete.Visible = false;
+
+                    ToolStripMenuItemSuppliersGoOver.Visible = false;
+                    ToolStripMenuItemSuppliersEdit.Visible = true;
+                    ToolStripMenuItemSuppliersDelete.Visible = true;
+                    break;
+            }
         }
 
         private void dataGridViewSells_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -522,6 +570,39 @@ namespace cp
         private void toolStripButtonExit_MouseEnter(object sender, EventArgs e)
         {
             toolStripStatusLabel.Text = "Выход";
+        }
+
+        private void ToolStripMenuItemSellsGoOver_Click(object sender, EventArgs e)
+        {
+            tabControlLists.SelectTab(0);
+        }
+
+        private void ToolStripMenuItemGoodsGoOver_Click(object sender, EventArgs e)
+        {
+            tabControlLists.SelectTab(1);
+        }
+
+        private void ToolStripMenuItemSuppliersGoOver_Click(object sender, EventArgs e)
+        {
+            tabControlLists.SelectTab(2);
+        }
+
+        private void NewSellMenuCommand(object sender, EventArgs e)
+        {
+            tabControlLists.SelectTab(0);
+            NewSells();
+        }
+
+        private void NewGoodMenuCommand(object sender, EventArgs e)
+        {
+            tabControlLists.SelectTab(1);
+            NewGoods();
+        }
+
+        private void NewSupplierMenuCommand(object sender, EventArgs e)
+        {
+            tabControlLists.SelectTab(2);
+            NewSuppliers();
         }
     }
 }
