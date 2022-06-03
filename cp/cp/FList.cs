@@ -383,7 +383,7 @@ namespace cp
         #endregion Suppliers
 
         // CREATE Button
-        private void toolStripButtonCreate_Click(object sender, EventArgs e)
+        private void NewItem(object sender, EventArgs e)
         {
             if (tabControlLists.SelectedIndex == 0)
                 NewSells();
@@ -394,7 +394,7 @@ namespace cp
         }
 
         // EDIT Button
-        private void toolStripButtonEdit_Click(object sender, EventArgs e)
+        private void EditItem(object sender, EventArgs e)
         {
             if (tabControlLists.SelectedIndex == 0 && dataGridViewSells.SelectedCells.Count > 0)
             {
@@ -423,7 +423,7 @@ namespace cp
         }
 
         // DELETE Button
-        private void toolStripButtonDelete_Click(object sender, EventArgs e)
+        private void DeleteItem(object sender, EventArgs e)
         {
             if (tabControlLists.SelectedIndex == 0 &&
                 dataGridViewSells.SelectedCells.Count > 0 &&
