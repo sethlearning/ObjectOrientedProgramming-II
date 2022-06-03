@@ -382,6 +382,7 @@ namespace cp
         }
         #endregion Suppliers
 
+        #region Buttons
         // CREATE Button
         private void NewItemCommand(object sender, EventArgs e)
         {
@@ -440,7 +441,7 @@ namespace cp
                 dataGridViewSuppliers.SelectedCells[0].RowIndex < dataGridViewSuppliers.Rows.Count - 1)
                     DeleteSuppliers(dataGridViewSuppliers.SelectedCells[0].RowIndex);
         }
-
+        #endregion Buttons
         // Tab Changed
         private void TabChange(object sender, EventArgs e)
         {
@@ -527,6 +528,7 @@ namespace cp
                 NewSuppliers();
         }
 
+        #region Menu Events
         private void toolStripButtonExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Выйти из программы?", "Выход", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
@@ -565,8 +567,9 @@ namespace cp
             tabControlLists.SelectTab(2);
             NewSuppliers();
         }
+        #endregion Menu Events
 
-        // Status label
+        #region Status Label
         private void toolStripButtonCreate_MouseEnter(object sender, EventArgs e)
         {
             if (tabControlLists.SelectedIndex == 0)
@@ -681,5 +684,6 @@ namespace cp
         {
             toolStripStatusLabel.Text = "Перейти к поставщикам";
         }
+        #endregion Status Label
     }
 }

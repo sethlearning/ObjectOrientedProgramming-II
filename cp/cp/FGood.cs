@@ -12,13 +12,6 @@ namespace cp
 {
     public partial class FGood : Form
     {
-        /*
-        public FGood()
-        {
-            InitializeComponent();
-        }
-        */
-
         public DataRow dr;
         public bool sNameChanged = false;
         public bool dataChanged = false;
