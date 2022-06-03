@@ -532,46 +532,6 @@ namespace cp
             Application.Exit();
         }
 
-        private void toolStripButtonCreate_MouseEnter(object sender, EventArgs e)
-        {
-            if (tabControlLists.SelectedIndex == 0)
-                toolStripStatusLabel.Text = "Новая продажа";
-            else if (tabControlLists.SelectedIndex == 1)
-                toolStripStatusLabel.Text = "Новый товар";
-            else if (tabControlLists.SelectedIndex == 2)
-                toolStripStatusLabel.Text = "Новый поставщик";
-        }
-
-        private void CleatStatusLabel(object sender, EventArgs e)
-        {
-            toolStripStatusLabel.Text = "";
-        }
-
-        private void toolStripButtonEdit_MouseEnter(object sender, EventArgs e)
-        {
-            if (tabControlLists.SelectedIndex == 0)
-                toolStripStatusLabel.Text = "Редактирование продажи";
-            else if (tabControlLists.SelectedIndex == 1)
-                toolStripStatusLabel.Text = "Редактирование товара";
-            else if (tabControlLists.SelectedIndex == 2)
-                toolStripStatusLabel.Text = "Редактирование поставщика";
-        }
-
-        private void toolStripButtonDelete_MouseEnter(object sender, EventArgs e)
-        {
-            if (tabControlLists.SelectedIndex == 0)
-                toolStripStatusLabel.Text = "Удаление продажи";
-            else if (tabControlLists.SelectedIndex == 1)
-                toolStripStatusLabel.Text = "Удаление товара";
-            else if (tabControlLists.SelectedIndex == 2)
-                toolStripStatusLabel.Text = "Удаление поставщика";
-        }
-
-        private void toolStripButtonExit_MouseEnter(object sender, EventArgs e)
-        {
-            toolStripStatusLabel.Text = "Выход";
-        }
-
         private void ToolStripMenuItemSellsGoOver_Click(object sender, EventArgs e)
         {
             tabControlLists.SelectTab(0);
@@ -603,6 +563,122 @@ namespace cp
         {
             tabControlLists.SelectTab(2);
             NewSuppliers();
+        }
+
+        // Status label
+        private void toolStripButtonCreate_MouseEnter(object sender, EventArgs e)
+        {
+            if (tabControlLists.SelectedIndex == 0)
+                toolStripStatusLabel.Text = "Новая продажа";
+            else if (tabControlLists.SelectedIndex == 1)
+                toolStripStatusLabel.Text = "Новый товар";
+            else if (tabControlLists.SelectedIndex == 2)
+                toolStripStatusLabel.Text = "Новый поставщик";
+        }
+
+        private void ClearStatusLabel(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "";
+        }
+
+        private void toolStripButtonEdit_MouseEnter(object sender, EventArgs e)
+        {
+            if (tabControlLists.SelectedIndex == 0)
+                toolStripStatusLabel.Text = "Редактирование продажи";
+            else if (tabControlLists.SelectedIndex == 1)
+                toolStripStatusLabel.Text = "Редактирование товара";
+            else if (tabControlLists.SelectedIndex == 2)
+                toolStripStatusLabel.Text = "Редактирование поставщика";
+        }
+
+        private void toolStripButtonDelete_MouseEnter(object sender, EventArgs e)
+        {
+            if (tabControlLists.SelectedIndex == 0)
+                toolStripStatusLabel.Text = "Удаление продажи";
+            else if (tabControlLists.SelectedIndex == 1)
+                toolStripStatusLabel.Text = "Удаление товара";
+            else if (tabControlLists.SelectedIndex == 2)
+                toolStripStatusLabel.Text = "Удаление поставщика";
+        }
+
+        private void toolStripButtonExit_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Выход";
+        }
+
+        private void ToolStripMenuItemSells_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Продажи";
+        }
+
+        private void ToolStripMenuItemSellsNew_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Новая продажа";
+        }
+
+        private void ToolStripMenuItemSellsEdit_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Редактирование продажи";
+        }
+
+        private void ToolStripMenuItemSellsDelete_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Удаление продажи";
+        }
+
+        private void ToolStripMenuItemSellsGoOver_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Перейти к продажам";
+        }
+
+        private void ToolStripMenuItemGoods_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Товары";
+        }
+
+        private void ToolStripMenuItemGoodsNew_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Новый товар";
+        }
+
+        private void ToolStripMenuItemGoodsEdit_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Редактирование товара";
+        }
+
+        private void ToolStripMenuItemGoodsDelete_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Удаление товара";
+        }
+
+        private void ToolStripMenuItemGoodsGoOver_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Перейти к товарам";
+        }
+
+        private void ToolStripMenuItemSuppliers_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Поставщики";
+        }
+
+        private void ToolStripMenuItemSuppliersNew_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Новый поставщик";
+        }
+
+        private void ToolStripMenuItemSuppliersEdit_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Редактирование поставщика";
+        }
+
+        private void ToolStripMenuItemSuppliersDelete_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Удаление поставщика";
+        }
+
+        private void ToolStripMenuItemSuppliersGoOver_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Перейти к поставщикам";
         }
     }
 }
