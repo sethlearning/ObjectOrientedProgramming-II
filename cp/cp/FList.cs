@@ -518,5 +518,10 @@ namespace cp
             else if (tabControlLists.SelectedIndex == 2)
                 toolStripStatusLabel.Text = "Удаление поставщика";
         }
+
+        private void toolStripButtonExit_MouseEnter(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = "Выход";
+        }
     }
 }
