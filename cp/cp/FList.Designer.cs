@@ -120,13 +120,17 @@
             // dataGridViewSells
             // 
             this.dataGridViewSells.AllowUserToOrderColumns = true;
+            this.dataGridViewSells.AllowUserToResizeRows = false;
             this.dataGridViewSells.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewSells.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSells.ContextMenuStrip = this.contextMenuStrip;
             this.dataGridViewSells.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewSells.MultiSelect = false;
             this.dataGridViewSells.Name = "dataGridViewSells";
+            this.dataGridViewSells.ReadOnly = true;
+            this.dataGridViewSells.RowHeadersVisible = false;
             this.dataGridViewSells.Size = new System.Drawing.Size(838, 327);
             this.dataGridViewSells.TabIndex = 0;
             this.dataGridViewSells.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSells_CellDoubleClick);
@@ -174,13 +178,17 @@
             // 
             // dataGridViewGoods
             // 
+            this.dataGridViewGoods.AllowUserToResizeRows = false;
             this.dataGridViewGoods.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewGoods.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGoods.ContextMenuStrip = this.contextMenuStrip;
             this.dataGridViewGoods.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewGoods.MultiSelect = false;
             this.dataGridViewGoods.Name = "dataGridViewGoods";
+            this.dataGridViewGoods.ReadOnly = true;
+            this.dataGridViewGoods.RowHeadersVisible = false;
             this.dataGridViewGoods.Size = new System.Drawing.Size(838, 327);
             this.dataGridViewGoods.TabIndex = 0;
             this.dataGridViewGoods.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGoods_CellDoubleClick);
@@ -198,13 +206,17 @@
             // 
             // dataGridViewSuppliers
             // 
+            this.dataGridViewSuppliers.AllowUserToResizeRows = false;
             this.dataGridViewSuppliers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSuppliers.ContextMenuStrip = this.contextMenuStrip;
             this.dataGridViewSuppliers.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewSuppliers.MultiSelect = false;
             this.dataGridViewSuppliers.Name = "dataGridViewSuppliers";
+            this.dataGridViewSuppliers.ReadOnly = true;
+            this.dataGridViewSuppliers.RowHeadersVisible = false;
             this.dataGridViewSuppliers.Size = new System.Drawing.Size(838, 327);
             this.dataGridViewSuppliers.TabIndex = 0;
             this.dataGridViewSuppliers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSuppliers_CellDoubleClick);
