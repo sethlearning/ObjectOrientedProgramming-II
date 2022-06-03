@@ -58,6 +58,7 @@
             this.textBoxSupplierID.ReadOnly = true;
             this.textBoxSupplierID.Size = new System.Drawing.Size(298, 20);
             this.textBoxSupplierID.TabIndex = 1;
+            this.textBoxSupplierID.TabStop = false;
             // 
             // labelSName
             // 
@@ -73,7 +74,7 @@
             this.textBoxSName.Location = new System.Drawing.Point(164, 63);
             this.textBoxSName.Name = "textBoxSName";
             this.textBoxSName.Size = new System.Drawing.Size(298, 20);
-            this.textBoxSName.TabIndex = 3;
+            this.textBoxSName.TabIndex = 1;
             // 
             // labelSAddress
             // 
@@ -89,7 +90,7 @@
             this.textBoxSAddess.Location = new System.Drawing.Point(164, 98);
             this.textBoxSAddess.Name = "textBoxSAddess";
             this.textBoxSAddess.Size = new System.Drawing.Size(298, 20);
-            this.textBoxSAddess.TabIndex = 5;
+            this.textBoxSAddess.TabIndex = 2;
             // 
             // labelSPhoneNumber
             // 
@@ -105,7 +106,7 @@
             this.textBoxSPhoneNumber.Location = new System.Drawing.Point(164, 133);
             this.textBoxSPhoneNumber.Name = "textBoxSPhoneNumber";
             this.textBoxSPhoneNumber.Size = new System.Drawing.Size(298, 20);
-            this.textBoxSPhoneNumber.TabIndex = 7;
+            this.textBoxSPhoneNumber.TabIndex = 3;
             // 
             // labelSContact
             // 
@@ -121,14 +122,14 @@
             this.textBoxSContact.Location = new System.Drawing.Point(164, 168);
             this.textBoxSContact.Name = "textBoxSContact";
             this.textBoxSContact.Size = new System.Drawing.Size(298, 20);
-            this.textBoxSContact.TabIndex = 9;
+            this.textBoxSContact.TabIndex = 4;
             // 
             // buttonOK
             // 
             this.buttonOK.Location = new System.Drawing.Point(302, 210);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 10;
+            this.buttonOK.TabIndex = 5;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -139,7 +140,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(387, 210);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 11;
+            this.buttonCancel.TabIndex = 6;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);

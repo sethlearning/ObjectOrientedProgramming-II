@@ -64,6 +64,7 @@
             this.textBoxGID.ReadOnly = true;
             this.textBoxGID.Size = new System.Drawing.Size(298, 20);
             this.textBoxGID.TabIndex = 1;
+            this.textBoxGID.TabStop = false;
             // 
             // labelGName
             // 
@@ -79,7 +80,7 @@
             this.textBoxGName.Location = new System.Drawing.Point(164, 63);
             this.textBoxGName.Name = "textBoxGName";
             this.textBoxGName.Size = new System.Drawing.Size(298, 20);
-            this.textBoxGName.TabIndex = 3;
+            this.textBoxGName.TabIndex = 1;
             // 
             // labelGSupplierID
             // 
@@ -97,6 +98,7 @@
             this.textBoxGSupplierID.ReadOnly = true;
             this.textBoxGSupplierID.Size = new System.Drawing.Size(298, 20);
             this.textBoxGSupplierID.TabIndex = 5;
+            this.textBoxGSupplierID.TabStop = false;
             // 
             // labelSName
             // 
@@ -113,7 +115,7 @@
             this.comboBoxSName.Location = new System.Drawing.Point(164, 133);
             this.comboBoxSName.Name = "comboBoxSName";
             this.comboBoxSName.Size = new System.Drawing.Size(298, 21);
-            this.comboBoxSName.TabIndex = 7;
+            this.comboBoxSName.TabIndex = 2;
             this.comboBoxSName.SelectedIndexChanged += new System.EventHandler(this.comboBoxSName_SelectedIndexChanged);
             // 
             // labelGSupplyDate
@@ -130,7 +132,7 @@
             this.dateTimePickerGSupplyDate.Location = new System.Drawing.Point(164, 168);
             this.dateTimePickerGSupplyDate.Name = "dateTimePickerGSupplyDate";
             this.dateTimePickerGSupplyDate.Size = new System.Drawing.Size(298, 20);
-            this.dateTimePickerGSupplyDate.TabIndex = 9;
+            this.dateTimePickerGSupplyDate.TabIndex = 3;
             // 
             // labelGQuantity
             // 
@@ -156,7 +158,7 @@
             0});
             this.numericUpDownGQuantity.Name = "numericUpDownGQuantity";
             this.numericUpDownGQuantity.Size = new System.Drawing.Size(298, 20);
-            this.numericUpDownGQuantity.TabIndex = 11;
+            this.numericUpDownGQuantity.TabIndex = 4;
             this.numericUpDownGQuantity.Value = new decimal(new int[] {
             1,
             0,
@@ -179,7 +181,7 @@
             0});
             this.numericUpDownGBuyingPrice.Name = "numericUpDownGBuyingPrice";
             this.numericUpDownGBuyingPrice.Size = new System.Drawing.Size(298, 20);
-            this.numericUpDownGBuyingPrice.TabIndex = 12;
+            this.numericUpDownGBuyingPrice.TabIndex = 5;
             // 
             // labelGBuyingPrice
             // 
@@ -195,7 +197,7 @@
             this.buttonOK.Location = new System.Drawing.Point(302, 280);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 14;
+            this.buttonOK.TabIndex = 6;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -206,7 +208,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(387, 280);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 15;
+            this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);

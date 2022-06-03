@@ -62,6 +62,7 @@
             this.textBoxSellID.ReadOnly = true;
             this.textBoxSellID.Size = new System.Drawing.Size(298, 20);
             this.textBoxSellID.TabIndex = 1;
+            this.textBoxSellID.TabStop = false;
             // 
             // labelSGID
             // 
@@ -79,6 +80,7 @@
             this.textBoxSGID.ReadOnly = true;
             this.textBoxSGID.Size = new System.Drawing.Size(298, 20);
             this.textBoxSGID.TabIndex = 3;
+            this.textBoxSGID.TabStop = false;
             // 
             // comboBoxSGID
             // 
@@ -86,7 +88,7 @@
             this.comboBoxSGID.Location = new System.Drawing.Point(164, 98);
             this.comboBoxSGID.Name = "comboBoxSGID";
             this.comboBoxSGID.Size = new System.Drawing.Size(298, 21);
-            this.comboBoxSGID.TabIndex = 4;
+            this.comboBoxSGID.TabIndex = 1;
             this.comboBoxSGID.SelectedIndexChanged += new System.EventHandler(this.comboBoxSGID_SelectedIndexChanged);
             // 
             // labelGName
@@ -130,7 +132,7 @@
             this.buttonOK.Location = new System.Drawing.Point(302, 245);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 13;
+            this.buttonOK.TabIndex = 5;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -141,7 +143,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(387, 245);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 14;
+            this.buttonCancel.TabIndex = 6;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -151,7 +153,7 @@
             this.dateTimePickerSells.Location = new System.Drawing.Point(164, 133);
             this.dateTimePickerSells.Name = "dateTimePickerSells";
             this.dateTimePickerSells.Size = new System.Drawing.Size(298, 20);
-            this.dateTimePickerSells.TabIndex = 15;
+            this.dateTimePickerSells.TabIndex = 2;
             // 
             // numericUpDownSQuantity
             // 
@@ -168,7 +170,7 @@
             0});
             this.numericUpDownSQuantity.Name = "numericUpDownSQuantity";
             this.numericUpDownSQuantity.Size = new System.Drawing.Size(298, 20);
-            this.numericUpDownSQuantity.TabIndex = 16;
+            this.numericUpDownSQuantity.TabIndex = 3;
             this.numericUpDownSQuantity.Value = new decimal(new int[] {
             1,
             0,
@@ -191,7 +193,7 @@
             0});
             this.numericUpDownSSellingPrice.Name = "numericUpDownSSellingPrice";
             this.numericUpDownSSellingPrice.Size = new System.Drawing.Size(298, 20);
-            this.numericUpDownSSellingPrice.TabIndex = 17;
+            this.numericUpDownSSellingPrice.TabIndex = 4;
             // 
             // FSell
             // 
