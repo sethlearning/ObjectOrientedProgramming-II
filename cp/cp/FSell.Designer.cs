@@ -84,6 +84,7 @@
             // 
             // comboBoxSGID
             // 
+            this.comboBoxSGID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSGID.FormattingEnabled = true;
             this.comboBoxSGID.Location = new System.Drawing.Point(164, 98);
             this.comboBoxSGID.Name = "comboBoxSGID";
