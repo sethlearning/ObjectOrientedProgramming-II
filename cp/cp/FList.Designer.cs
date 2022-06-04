@@ -488,9 +488,9 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.GoodsTableAdapter = null;
+            this.tableAdapterManager.GoodsTableAdapter = this.goodsTableAdapter;
             this.tableAdapterManager.SellsTableAdapter = this.sellsTableAdapter;
-            this.tableAdapterManager.SuppliersTableAdapter = null;
+            this.tableAdapterManager.SuppliersTableAdapter = this.suppliersTableAdapter;
             this.tableAdapterManager.UpdateOrder = cp.cpDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // goodsBindingSource
